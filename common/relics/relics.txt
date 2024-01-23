@@ -1,0 +1,56 @@
+
+
+r_gdi_matrix = {
+	activation_duration = 1800
+	portrait = "GFX_relic_dragon_trophy"
+	sound = "relic_activation_ether_drake_trophy"
+
+	resources = {
+		category = relics
+		# Activation cost
+		cost = {
+			energy = 10000
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			always = yes
+		}
+	  #add archeotech speed
+	  category_archaeostudies_research_speed_mult = 0.25
+	}
+
+	score = 1000
+
+	active_effect = {
+		custom_tooltip = r_gdi_matrix_active
+		set_timed_country_flag = {
+			flag = gdi_triumph
+			days = 1800
+		}
+		#add_modifier = {
+		#	modifier = "gdi_triumph"
+		#	days = 1800
+		#}
+		custom_tooltip = relic_triumph_cooldown
+		hidden_effect = {
+			add_modifier = {
+				modifier = "relic_activation_cooldown"
+				days = 3600
+			}
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		inline_script = {
+			script = relics/activation_checks
+			RELIC = r_dragon_trophy
+		}
+	}
+}

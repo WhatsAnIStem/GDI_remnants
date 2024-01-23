@@ -1,0 +1,4 @@
+﻿l_english:
+ r_gdi_matrix:0 "G.D.I. War Matrix"
+ r_gdi_matrix_desc:0 "A fragmented war matrix from a once menacing empire. We can invest a large amount of energy to defragment the relic and gain access to their lost war ship designs, for a time."
+ r_gdi_matrix_active:0 "Allows the design and construction of §PMenacing Corvettes§! for 5 years."
