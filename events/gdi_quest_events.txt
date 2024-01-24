@@ -1,0 +1,107 @@
+namespace = gdievent
+fleet_event = {
+	id = gdievent.0001
+	title = gdievent.0001.name
+	desc = gdievent.0001.desc
+	picture = GFX_evt_binary_stars
+	show_sound = event_mystic_reveal_light
+	is_triggered_only = yes
+
+	location = from
+
+	trigger = {
+		from = {
+			has_star_flag = gdi_quest_system_01
+			NOT = {
+				has_star_flag = gdi_homeworld_revealed
+			}
+		}
+		owner = {
+			NOT = {
+				has_country_flag = found_gdi_01
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = found_gdi_01
+		}
+	}
+
+	option = {
+		name = FASCINATING
+		from.star = {
+			add_anomaly = {
+				category = SOLARPUNK_CAT
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = gdievent.0020
+	title = gdievent.0020.name
+	desc = gdievent.0020.desc
+	picture = GFX_evt_binary_stars
+	show_sound = event_mystic_reveal_light
+	is_triggered_only = yes
+
+	trigger = {
+		this = {
+			solar_system = {
+				has_star_flag = gdi_home_system
+			}
+		}
+		owner = {
+			has_country_flag = discovered_gdi
+			NOT = {
+				has_country_flag = found_gdi_homeworld
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = found_gdi_homeworld
+		}
+		this = {
+			solar_system = {
+				ordered_system_megastructure = {
+					limit = {
+						has_megastructure_flag = gdi_think_tank
+					}
+					position = 0
+					order_by = 0
+					save_event_target_as = gdi_relic_project
+				}
+			}
+		}
+
+	}
+
+	option = {
+		name = EVENT_GDI_HOMEWORLD
+		enable_special_project = {
+			name = "GDI_FINAL_PROJECT"
+			location = event_target:gdi_relic_project
+			owner = root.owner
+		}
+	}
+}
+
+country_event = {
+	id = gdievent.0021
+	title = gdievent.0021.name
+	desc = gdievent.0021.desc
+	picture = GFX_evt_binary_stars
+	show_sound = event_mystic_reveal_light
+	is_triggered_only = yes
+
+	option = {
+		name = EVENT_FOUND_GDI_RELIC
+		root.owner = {
+			add_relic = r_gdi_matrix
+		}
+	}
+}

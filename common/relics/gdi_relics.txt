@@ -2,7 +2,7 @@
 
 r_gdi_matrix = {
 	activation_duration = 1800
-	portrait = "GFX_relic_dragon_trophy"
+	portrait = "GFX_relic_gdi_matrix"
 	sound = "relic_activation_ether_drake_trophy"
 
 	resources = {
@@ -50,7 +50,7 @@ r_gdi_matrix = {
 	possible = {
 		inline_script = {
 			script = relics/activation_checks
-			RELIC = r_dragon_trophy
+			RELIC = r_gdi_matrix
 		}
 	}
 }

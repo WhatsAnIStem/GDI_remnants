@@ -1,0 +1,262 @@
+@distance = 50
+@base_moon_distance = 10
+
+#GDI West
+gdi_system_1 = {
+	name = "Homeworld III"
+	class = sc_black_hole
+
+	flags = {gdi_quest_system_01}
+
+	planet = {
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 3
+		init_effect = { 
+			set_name = "Temporal Tear"
+			prevent_anomaly = yes
+			set_deposit = d_physics_4
+
+
+		} 
+	}
+
+	planet = {
+		class = "pc_barren_cold"
+		orbit_distance = 20
+		orbit_angle = 45
+		has_ring = no
+
+		init_effect = {
+			save_event_target_as = gdi_1_planet
+			set_name = "Homeworld III"
+			set_deposit = d_dark_matter_deposit_2
+
+			create_ambient_object = {
+				type = "large_debris_object"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 10
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				entity_offset_height = -10
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 10
+					angle = random
+				}
+			}
+		}
+	}
+	
+
+	init_effect = {
+		spawn_megastructure = {
+			type = habitat_central_complex_ruined
+			planet = event_target:gdi_1_planet
+		}
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 2000000
+		modifier = {
+			factor = 0
+			is_bottleneck_system = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+	}
+	max_instances = 1
+}
+
+#GDI South
+gdi_system_2 = {
+	class = sc_black_hole
+
+}
+
+#GDI East
+gdi_system_3 = {
+	class = sc_black_hole
+
+}
+
+#GDI Homeworld
+gdi_homeworld = {
+	class = sc_k
+	name = "Homeworld"
+
+	flags = {gdi_home_system}
+
+	
+
+	asteroid_belt = {
+		type = empty_asteroid_belt
+		radius = 122
+	}
+	asteroid_belt = {
+		type = empty_asteroid_belt
+		radius = 120
+	}
+	asteroid_belt = {
+		type = empty_asteroid_belt
+		radius = 118
+	}
+
+	planet = {
+		class = star
+		size = 30
+		orbit_distance = 0
+		orbit_angle = 1
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		orbit_distance = 50
+		orbit_angle = 225
+		class = pc_shattered
+		size = 20
+		moon = {
+			orbit_distance = 10
+			orbit_angle = 1
+			init_effect = {
+				prevent_anomaly = yes
+				set_deposit = d_dark_matter_deposit_1
+			}
+		}
+		init_effect = {
+			set_name = "Homeworld"
+			prevent_anomaly = yes
+			set_deposit = d_dark_matter_deposit_3
+			add_deposit = d_zro_deposit_3
+		}
+	}
+
+	planet = {
+		orbit_distance = 30
+		orbit_angle = -155
+		class = pc_molten
+		size = 15
+		init_effect = {
+			prevent_anomaly = yes
+			set_deposit = d_dark_matter_deposit_1
+		}
+	}
+
+	planet = {
+		orbit_distance = 40
+		orbit_angle = -70
+		class = pc_shattered
+		has_ring = yes
+		init_effect = {
+			save_event_target_as = gdi_nexus_planet
+			prevent_anomaly = yes
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+				entity_offset_height = -10
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 10
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+				entity_offset_height = -13
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 30
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+				entity_offset_height = -15
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+				entity_offset_height = -10
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 30
+					angle = random
+				}
+			}
+		}
+	}
+
+
+	init_effect = {
+		spawn_megastructure = {
+			type = crisis_sphere_ruined
+			planet = this.star
+		}
+
+		spawn_megastructure = {
+			type = think_tank_ruined
+			planet = event_target:gdi_nexus_planet
+			init_effect = {
+				set_megastructure_flag = gdi_think_tank
+			}
+		}
+
+		create_ambient_object = {
+			type = psi_storm_1
+			location = this.star
+			scale = 0.5
+			use_3d_location = yes
+		}
+
+		create_ambient_object = {
+			type = turbulent_nebula_1
+			location = this.star
+		}
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 2000000
+		modifier = {
+			factor = 0
+			is_bottleneck_system = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+	}
+	max_instances = 1
+}

@@ -1,0 +1,25 @@
+special_project = {
+	key = "GDI_FINAL_PROJECT"
+	cost = 0
+	days_to_research = 80
+	tech_department = engineering_technology
+	picture = GFX_evt_underground_civilization
+	icon = "gfx/interface/icons/situation_log/situation_log_ship.dds"
+	location = yes
+	timelimit = -1
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+
+	on_success = {
+		root.owner = {
+			country_event = {
+				id = gdievent.0021
+			}
+		}
+	}
+}
