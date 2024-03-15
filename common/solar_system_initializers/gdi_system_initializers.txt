@@ -6,7 +6,7 @@ gdi_system_1 = {
 	name = "Homeworld III"
 	class = sc_black_hole
 
-	flags = {gdi_quest_system_01}
+	flags = {gdi_quest_system_west}
 
 	planet = {
 		class = star
@@ -14,7 +14,7 @@ gdi_system_1 = {
 		orbit_angle = 1
 		size = 3
 		init_effect = { 
-			set_name = "Temporal Tear"
+			set_name = "Temporal-Spatial Tear"
 			prevent_anomaly = yes
 			set_deposit = d_physics_4
 
@@ -29,7 +29,9 @@ gdi_system_1 = {
 		has_ring = no
 
 		init_effect = {
+			prevent_anomaly = yes
 			save_event_target_as = gdi_1_planet
+			set_planet_flag = gdi_west_project_target
 			set_name = "Homeworld III"
 			set_deposit = d_dark_matter_deposit_2
 
@@ -68,6 +70,15 @@ gdi_system_1 = {
 		}
 	}
 
+	init_effect = {
+		#spawn habitat debris
+		create_ambient_object = {
+			type = space_storm_1
+			location = this.star
+			use_3d_location = no
+		}
+	}
+
 	usage = misc_system_init
 	usage_odds = {
 		base = 2000000
@@ -81,17 +92,241 @@ gdi_system_1 = {
 		}
 	}
 	max_instances = 1
+
 }
 
 #GDI South
 gdi_system_2 = {
 	class = sc_black_hole
+	name = "Homeworld IV"
+
+	flags = {gdi_quest_system_south}
+
+	planet = {
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+
+		init_effect = {
+			prevent_anomaly = yes
+			set_deposit = d_dark_matter_deposit_1
+			set_name = "Unstable Temporal-Spatial Tear"
+			set_planet_flag = gdi_south_project_target
+		}
+	}
+	asteroid_belt = {
+		type = debris_asteroid_belt
+		radius = 60
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 60
+	}
+
+	asteroid_belt = {
+		type = crystal_asteroid_belt
+		radius = 60
+	}
+
+	#spawn with 2 astral rifts maybe
+
+	planet = {
+		class = pc_astral_scar
+		orbit_angle = {min = 0 max = 119}
+		orbit_distance = 100
+		init_effect = {
+			set_deposit = d_astral_threads_deposit_1
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		class = pc_astral_scar
+		orbit_angle = {min = 120 max = 239}
+		orbit_distance = 15
+		init_effect = {
+			set_deposit = d_astral_threads_deposit_1
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		class = pc_astral_scar
+		orbit_angle = {min = 240 max = 359}
+		orbit_distance = 15
+		init_effect = {
+			set_deposit = d_astral_threads_deposit_1
+			prevent_anomaly = yes
+		}
+	}
+
+	init_effect = {
+		create_ambient_object = {
+			type = space_storm_2
+			location = this.star
+			use_3d_location = no
+		}
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 2000000
+		modifier = {
+			factor = 0
+			is_bottleneck_system = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+	}
+	max_instances = 1
 
 }
 
 #GDI East
+#the one that naturally spawns first (has an anomaly -> archeology -> galaxy wide event chain)
 gdi_system_3 = {
-	class = sc_black_hole
+	class = sc_t
+	name = "H-W VI"
+
+	flags = {gdi_quest_system_east}
+	planet = {
+		class = star
+		orbit_distance = 10
+		orbit_angle = 1
+		size = 25
+		init_effect = {
+			save_event_target_as = gdi_east_habitat_planet
+			prevent_anomaly = yes
+			add_anomaly = {
+				category = gdi_1_cat
+			}
+		}
+	}
+
+	planet = {
+		class = pc_barren_cold
+		orbit_distance = 15
+		orbit_angle = {min = 135 max = 225}
+		size = {min = 20 max = 25}
+		init_effect = {
+			set_planet_flag = gdi_east_archeology_target
+			set_planet_flag = gdi_east_project_target
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		class = pc_barren_cold
+		size = {min = 3 max = 10}
+		orbit_distance =  100
+		orbit_angle = {min = 0 max = 179}
+	}
+
+	planet = {
+		class = pc_barren_cold
+		size = {min = 3 max = 10}
+		orbit_distance = 130
+		orbit_angle = {min = 180 max = 359}
+	}
+
+	init_effect = {
+		#spawn habitat debris and hyper relay
+		create_ambient_object = {
+			type = space_storm_1
+			location = this.star
+			use_3d_location = no
+		}
+
+		spawn_megastructure = {
+			type = hyper_relay_ruined
+			planet = star
+			orbit_distance = 170
+		}
+
+		create_ambient_object = {
+			type = "large_debris_object"
+			location = this.star
+			use_3d_location = yes
+			entity_offset_height = 15
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 5
+				angle = random
+			}
+		}
+		create_ambient_object = {
+			type = "small_debris_object"
+			location = this.star
+			use_3d_location = yes
+			entity_offset_height = 10
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 10
+				angle = random
+			}
+		}
+		create_ambient_object = {
+			type = "small_debris_object"
+			location = this.star
+			use_3d_location = yes
+			entity_offset_height = 10
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 10
+				angle = random
+			}
+		}
+		create_ambient_object = {
+			type = "small_debris_object"
+			location = this.star
+			use_3d_location = yes
+			entity_offset_height = 10
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 10
+				angle = random
+			}
+		}
+		create_ambient_object = {
+			type = "small_debris_object"
+			location = this.star
+			use_3d_location = yes
+			entity_offset_height = 10
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 10
+				angle = random
+			}
+		}
+		
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = 2000000
+		modifier = {
+			factor = 0
+			is_bottleneck_system = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+	}
+	max_instances = 1
 
 }
 

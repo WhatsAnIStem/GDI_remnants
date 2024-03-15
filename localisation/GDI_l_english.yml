@@ -4,3 +4,8 @@
  r_gdi_matrix_active:0 "Allows the design and construction of §PMenacing Cruisers§! for 5 years."
  GDI_FINAL_PROJECT:0 ""
  GDI_FINAL_PROJECT_DESC:0 ""
+ gdi_arc_desc:0 "Several deep scans across this system eventually lead us to an abandoned complex buried deep under this planets surface."
+ site_gdi_arc:0 "Buried Orbital Complex"
+ gdievent.0021.name:0 "The End of the GDI"
+ gdievent.0021.desc:0 "Given the horrible state of this GDI megastructure, gaining access to the onboard datacenters was quite easy. Apparently, the giant star-encasing megastructure at the center of the system was constructed to 'duplicate' the system into every possible space and time. From the apparent state of the system though, it seems that their efforts were thwarted. Shortly after restoring power to parts of the megastructure, a new energy signature was detected aboard the structure, leading us to a failing GDI computation core. We were able to stabilize the core before it ultimately failed, and it seems to still be generating designs for new warships, mistaking us for its demented masters."
+ EVENT_FOUND_GDI_RELIC:0 "What secrets might this suspiciously cute core reveal to us?"

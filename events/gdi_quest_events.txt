@@ -1,43 +1,4 @@
 namespace = gdievent
-fleet_event = {
-	id = gdievent.0001
-	title = gdievent.0001.name
-	desc = gdievent.0001.desc
-	picture = GFX_evt_binary_stars
-	show_sound = event_mystic_reveal_light
-	is_triggered_only = yes
-
-	location = from
-
-	trigger = {
-		from = {
-			has_star_flag = gdi_quest_system_01
-			NOT = {
-				has_star_flag = gdi_homeworld_revealed
-			}
-		}
-		owner = {
-			NOT = {
-				has_country_flag = found_gdi_01
-			}
-		}
-	}
-
-	immediate = {
-		owner = {
-			set_country_flag = found_gdi_01
-		}
-	}
-
-	option = {
-		name = FASCINATING
-		from.star = {
-			add_anomaly = {
-				category = SOLARPUNK_CAT
-			}
-		}
-	}
-}
 
 fleet_event = {
 	id = gdievent.0020
@@ -46,6 +7,8 @@ fleet_event = {
 	picture = GFX_evt_binary_stars
 	show_sound = event_mystic_reveal_light
 	is_triggered_only = yes
+
+	auto_select = yes
 
 	trigger = {
 		this = {
@@ -98,10 +61,64 @@ country_event = {
 	show_sound = event_mystic_reveal_light
 	is_triggered_only = yes
 
+	auto_select = yes
+
 	option = {
 		name = EVENT_FOUND_GDI_RELIC
 		root.owner = {
 			add_relic = r_gdi_matrix
+		}
+	}
+}
+
+ship_event = {
+	id = gdievent.0003
+	title = gdievent.0003.name
+	desc = gdievent.0003.desc
+	#show_sound = [ph]
+	is_triggered_only = yes
+
+	auto_select = yes
+
+	immediate = {
+		from.solar_system = {
+			every_system_planet = {
+				limit = {
+					has_planet_flag = gdi_east_archeology_target
+				}
+				save_event_target_as = gdi_dig_site_target
+			}
+		}
+	}
+
+	option = {
+		name = GDI_EVENT_SPAWNARCHOLOGY
+		event_target:gdi_dig_site_target = {
+			create_archaeological_site = site_gdi_arc
+		} 
+	}
+}
+
+country_event = {
+	id = gdievent.0004
+	title = gdievent.0004.name
+	desc = gdievent.0004.desc
+	#show_sound = [ph]
+	is_triggered_only = yes
+
+	auto_select = yes
+
+	option = {
+		name = gdi_bystander_create_poi
+		begin_event_chain = {
+			event_chain = tutorial_25_chain
+		}
+	}
+
+	option = {
+		name = gdi_founder_create_poi
+		begin_event_chain = {
+			event_chain = tutorial_25_chain
 		}
 	}
 }

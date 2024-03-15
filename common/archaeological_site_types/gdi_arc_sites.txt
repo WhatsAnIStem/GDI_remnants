@@ -1,0 +1,27 @@
+#Buried Orbital Complex
+site_gdi_arc = {
+	desc = gdi_arc_desc
+	#picture = GFX_ph
+	weight = 0
+
+	stages = 3
+
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = no_events } #maybe later?
+		}
+	}
+}

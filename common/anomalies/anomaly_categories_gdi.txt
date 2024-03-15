@@ -1,0 +1,15 @@
+gdi_1_cat = {
+	desc = "gdi_event_anomaly_desc"
+	#picture = "GFX_[PH]"
+	level = 8
+
+	spawn_chance = {
+		base = 0
+	}
+
+	on_success = {
+		1 = {
+			anomaly_event = gdievent.0003
+		}
+	}
+}
