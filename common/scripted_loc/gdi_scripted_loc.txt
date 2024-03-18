@@ -1,0 +1,11 @@
+defined_text = {
+    name = getHomeworldStatus
+    text = {
+        trigger = {has_country_flag = homeworld}
+        localization_key = gdievent.0022.desc.a
+    }
+    text = {
+        trigger = {not = { has_country_flag = homeworld}}
+        localization_key = gdievent.0022.desc.b
+    }
+}

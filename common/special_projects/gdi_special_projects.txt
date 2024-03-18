@@ -1,10 +1,12 @@
+
+#GDI relic project
 special_project = {
 	key = "GDI_FINAL_PROJECT"
 	cost = 0
 	days_to_research = 80
 	tech_department = engineering_technology
 	picture = GFX_evt_underground_civilization
-	icon = "gfx/interface/icons/situation_log/situation_log_ship.dds"
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
 	location = yes
 	timelimit = -1
 
@@ -14,6 +16,111 @@ special_project = {
 		shipclass_science_ship = 1
 		leader = scientist
 	}
+
+	on_success = {
+		root.owner = {
+			country_event = {
+				id = gdievent.0029
+			}
+		}
+	}
+}
+
+#special project for the east system...
+special_project = {
+	key = "GDI_PROJECT_EAST"
+	event_scope = ship_event
+	location = yes
+	cost = 0
+	days_to_research = 360
+	event_chain = gdi_discovery_chain
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+
+	#picture = 
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	tech_department = physics_technology
+	timelimit = -1
+
+	on_success = {
+		this.fleet = {
+			fleet_event = {
+				id = gdievent.0032
+			}
+		}
+	}
+}
+
+#special project for the south system...
+special_project = {
+	key = "GDI_PROJECT_SOUTH"
+	event_scope = ship_event
+	location = yes
+	cost = 0
+	days_to_research = 360
+	event_chain = gdi_discovery_chain
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+
+	#picture = 
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	tech_department = physics_technology
+	timelimit = -1
+
+	on_success = {
+		this.fleet = {
+			fleet_event = {
+				id = gdievent.0033
+			}
+		}
+	}
+}
+
+#special project for the west system...
+special_project = {
+	key = "GDI_PROJECT_WEST"
+	event_scope = ship_event
+	location = yes
+	cost = 0
+	days_to_research = 360
+	event_chain = gdi_discovery_chain
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+
+	#picture = 
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	tech_department = physics_technology
+	timelimit = -1
+
+	on_success = {
+		this.fleet = {
+			fleet_event = {
+				id = gdievent.0034
+			}
+		}
+	}
+}
+
+#project to spawn the home system...
+special_project = {
+	key = "GDI_LOCATE_HOME_SYSTEM"
+	cost = 10000
+	tech_department = physics_technology
+	#picture = 
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	location = yes
+	timelimit = -1
+
+	event_scope = planet_event
 
 	on_success = {
 		root.owner = {

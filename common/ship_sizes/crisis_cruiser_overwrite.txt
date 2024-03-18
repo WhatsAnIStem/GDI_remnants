@@ -1,4 +1,4 @@
-crisis_cruiser = {
+gdi_crisis_cruiser = {
 	graphical_culture = yes
 	max_speed = @speed_fast
 	acceleration = 0.2
@@ -25,11 +25,7 @@ crisis_cruiser = {
 
 
 	potential_country = {
-		OR = {
-			has_crisis_level = crisis_level_4
-			has_country_flag = gdi_triumph
-		}
-		
+		has_country_flag = gdi_triumph
 	}
 
 	class = shipclass_military

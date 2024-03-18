@@ -1,62 +1,273 @@
 namespace = gdievent
 
+#GFX_evt_glitchy_matrix
+#set up site, start digging
+#digsite_0
 fleet_event = {
-	id = gdievent.0020
-	title = gdievent.0020.name
-	desc = gdievent.0020.desc
-	picture = GFX_evt_binary_stars
-	show_sound = event_mystic_reveal_light
+	id = gdievent.0012
+	title = gdievent.0012.name
+	desc = gdievent.0012.desc
+	picture = GFX_evt_archaeology_camp
+	location = from
+	show_sound = event_drilling
+	archaeology = yes
 	is_triggered_only = yes
 
-	auto_select = yes
-
-	trigger = {
-		this = {
-			solar_system = {
-				has_star_flag = gdi_home_system
-			}
-		}
-		owner = {
-			has_country_flag = discovered_gdi
-			NOT = {
-				has_country_flag = found_gdi_homeworld
-			}
-		}
-	}
-
-	immediate = {
-		owner = {
-			set_country_flag = found_gdi_homeworld
-		}
-		this = {
-			solar_system = {
-				ordered_system_megastructure = {
-					limit = {
-						has_megastructure_flag = gdi_think_tank
-					}
-					position = 0
-					order_by = 0
-					save_event_target_as = gdi_relic_project
-				}
-			}
-		}
-
-	}
-
 	option = {
-		name = EVENT_GDI_HOMEWORLD
-		enable_special_project = {
-			name = "GDI_FINAL_PROJECT"
-			location = event_target:gdi_relic_project
-			owner = root.owner
+		name = gdievent.digsite.0
+		small_artifact_reward = yes
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier1materialreward
+				min = @tier1materialmin
+				max = @tier1materialmax
+			}
 		}
 	}
 }
 
+#encounter door
+#digsite_1
+fleet_event = {
+	id = gdievent.0013
+	title = gdievent.0013.name
+	desc = gdievent.0013.desc
+	show_sound = event_energy_field
+	picture = GFX_evt_discovered_hidden_door
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = gdievent.digsite.1
+		small_artifact_reward = yes
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier3materialreward
+				min = @tier3materialmin
+				max = @tier3materialmax
+			}
+		}
+	}
+}
+
+#get the door open, initial results
+#digsite_2
+fleet_event = {
+	id = gdievent.0014
+	title = gdievent.0014.name
+	desc = gdievent.0014.desc
+	show_sound = event_power_down
+	picture = GFX_evt_intelligence_report
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = gdievent.digsite.2
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max =  @tier2researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max =  @tier2researchmax
+			}
+		}
+		from = {
+			solar_system = {
+				set_name = "Homeworld VI"
+				hidden_effect = {
+					star = {
+						set_name = "Homeworld VI"
+					}	
+				}
+			}
+		}
+	}
+}
+
+#stage three... discover temporal anomaly,
+#digsite_3
+fleet_event = {
+	id = gdievent.0015
+	title = gdievent.0015.name
+	desc = gdievent.0015.desc
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_vortex
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = gdievent.digsite.3
+		small_artifact_reward = yes
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max =  @tier3researchmax
+			}
+		}
+	}
+}
+
+#stage four... discover planets lost in the void
+#digsite_4
+fleet_event = {
+	id = gdievent.0016
+	title = gdievent.0016.name
+	desc = gdievent.0016.desc
+	show_sound = event_sensor_ping
+	picture = GFX_evt_astral_rift
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = gdievent.digsite.4
+		small_artifact_reward = yes
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max =  @tier5researchmax
+			}
+		}
+	}
+}
+
+#stage five... pull them out, finishes the site
+#digsite_5
+fleet_event = {
+	id = gdievent.0017
+	title = gdievent.0017.name
+	desc = gdievent.0017.desc
+	show_sound = event_activating_unknown_technology
+	picture = GFX_evt_archaeological_dig
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = gdievent.digsite.5
+		small_artifact_reward = yes
+		hidden_effect = {
+			owner = {
+				country_event = {
+					id = gdievent.0004
+				}
+			}
+		}
+	}
+}
+
+#event that highlights the homeworld system.
+country_event = {
+	id = gdievent.0022
+	title = gdievent.0022.name
+	desc = gdievent.0022.desc
+	picture = GFX_evt_communication_event
+
+	is_triggered_only = yes
+	auto_select = yes
+	location = event_target:gdi_home_system
+
+	immediate = {
+		random_system = {
+			limit = {has_star_flag = gdi_home_system}
+			save_event_target_as = gdi_home_system
+		}
+	}
+
+	option = {
+		name = EVENT_GDI_HOMEWORLD
+		if = {
+			limit = {
+				not = {
+					has_country_flag = homeworld
+				}			
+			}
+			end_event_chain = gdi_discovery_chain
+		}
+	}
+}
+
+#event that spawns the homeworld system, enables the special project...
+#hidden
 country_event = {
 	id = gdievent.0021
-	title = gdievent.0021.name
-	desc = gdievent.0021.desc
+
+	auto_select = yes
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		set_global_flag = homeworld_discovered
+		set_country_flag = homeworld
+
+		random_system_within_border = {
+			save_event_target_as = homeworld_spawn_system
+		}
+		
+		event_target:homeworld_spawn_system = {
+			spawn_system = {
+				min_distance = 10
+				max_distance = 30
+				max_jumps = 0
+				initializer = "gdi_homeworld"
+			}
+			if = {
+				limit = { last_created_system = { NOT = { has_hyperlane_to = prev } } }
+				add_hyperlane = {
+					from = this
+					to = last_created_system
+				}
+			}
+			else = {
+				add_extra_hyperlane_to_spawned_system_effect = yes
+			}
+		}
+
+		last_created_system = {
+			every_system_megastructure = {
+				limit = {
+					has_megastructure_flag = gdi_think_tank
+				}
+				enable_special_project = {
+					name = GDI_FINAL_PROJECT
+					owner = root
+					location = this
+				}
+			}
+			root = {
+				set_visited = prev
+			}
+		}
+		country_event = { id = gdievent.0022 days = 2 }
+	}
+}
+
+#final project, find the relic
+country_event = {
+	id = gdievent.0029
+	title = gdievent.0029.name
+	desc = gdievent.0029.desc
 	picture = GFX_evt_binary_stars
 	show_sound = event_mystic_reveal_light
 	is_triggered_only = yes
@@ -68,42 +279,178 @@ country_event = {
 		root.owner = {
 			add_relic = r_gdi_matrix
 		}
+		end_event_chain = gdi_discovery_chain
 	}
 }
 
+#event that spawns the anomaly...
+fleet_event = {
+	id = gdievent.1003
+	title = gdievent.1003.name
+	desc = gdievent.1003.desc
+	show_sound = event_mystic_reveal_light
+	picture = GFX_evt_ship_in_orbit
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			from = {has_star_flag = gdi_quest_system_east}
+			not = {has_global_flag = gdi_arc_spawned}
+			not = {owner = {has_country_flag = found_gdi_anomaly}}
+		}
+		
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = found_gdi_anomaly
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		from.solar_system = {
+			every_system_planet = {
+				limit = {has_planet_flag = gdi_east_anomaly_target}
+				add_anomaly = {
+					category = gdi_1_cat
+				}
+			}
+		}
+	}
+}
+
+#event that fires after the anomaly finishes, spawns the archeology
 ship_event = {
 	id = gdievent.0003
 	title = gdievent.0003.name
 	desc = gdievent.0003.desc
-	#show_sound = [ph]
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_wind_ruins
 	is_triggered_only = yes
 
 	auto_select = yes
 
 	immediate = {
-		from.solar_system = {
-			every_system_planet = {
-				limit = {
-					has_planet_flag = gdi_east_archeology_target
+		if = {
+			limit = {not = {has_global_flag = gdi_arc_spawned}}
+			from.solar_system = {
+				every_system_planet = {
+					limit = {
+						has_planet_flag = gdi_east_archeology_target
+					}
+					save_event_target_as = gdi_dig_site_target
 				}
-				save_event_target_as = gdi_dig_site_target
 			}
 		}
 	}
 
 	option = {
 		name = GDI_EVENT_SPAWNARCHOLOGY
-		event_target:gdi_dig_site_target = {
-			create_archaeological_site = site_gdi_arc
-		} 
+		if = {
+			limit = {not = {has_global_flag = gdi_arc_spawned}}
+			event_target:gdi_dig_site_target = {
+				create_archaeological_site = site_gdi_arc
+			}
+			set_global_flag = gdi_arc_spawned
+		}
 	}
 }
 
+#event that fires to create the two new systems, only runs for the empire that finishes the archeology site
+#HIDDEN
 country_event = {
 	id = gdievent.0004
-	title = gdievent.0004.name
-	desc = gdievent.0004.desc
-	#show_sound = [ph]
+	hide_window = yes
+  
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = gdi_leader
+		set_country_flag = gdi_race_leader
+		set_global_flag = gdi_race_started
+
+		#pick the first spot for the new system
+		random_system = {
+			limit = {
+				#not in fallen empire space
+				is_fe_cluster = no
+				is_marauder_cluster = no
+			}
+			save_event_target_as = gdi_system_1
+		}
+
+		#pick the second spot for the new system
+		random_system = {
+			limit = {
+				is_fe_cluster = no
+				is_marauder_cluster = no
+			}
+			save_event_target_as = gdi_system_2
+		}
+
+		event_target:gdi_system_1 = {
+			spawn_system = {
+				min_distance = 10
+				max_distance = 100
+				max_jumps = 5
+				initializer = "gdi_system_1"
+			}
+			if = {
+				limit = { last_created_system = { NOT = { has_hyperlane_to = prev } } }
+				add_hyperlane = {
+					from = this
+					to = last_created_system
+				}
+			}
+			else = {
+				add_extra_hyperlane_to_spawned_system_effect = yes
+			}
+		}
+
+		event_target:gdi_system_2 = {
+			spawn_system = {
+				min_distance = 10
+				max_distance = 30
+				max_jumps = 0
+				initializer = "gdi_system_2"
+			}
+			if = {
+				limit = { last_created_system = { NOT = { has_hyperlane_to = prev } } }
+				add_hyperlane = {
+					from = this
+					to = last_created_system
+				}
+			}
+			else = {
+				add_extra_hyperlane_to_spawned_system_effect = yes
+			}
+		}
+
+
+		#begin the galaxy wide event...
+		every_playable_country = {
+			limit = {
+				not = {
+					has_country_flag = gdi_race_leader
+				} 
+			}
+			country_event = { id = gdievent.0005 days = 2 }
+		}
+		country_event = {id = gdievent.0006 days = 2}
+	}
+}
+
+
+#event that fires to create the quest chain, this one fires for every other empire
+country_event = {
+	id = gdievent.0005
+	title = gdievent.0005.name
+	desc = gdievent.0005.desc
+	picture = GFX_evt_mysterious_signal
+	show_sound = event_red_alert
 	is_triggered_only = yes
 
 	auto_select = yes
@@ -111,14 +458,464 @@ country_event = {
 	option = {
 		name = gdi_bystander_create_poi
 		begin_event_chain = {
-			event_chain = tutorial_25_chain
+			event_chain = gdi_discovery_chain
 		}
 	}
+
+	after = {
+		random_system = {
+			limit = {
+				has_star_flag = gdi_quest_system_east
+			}
+			hidden_effect = {
+				root = {
+					set_visited = prev
+				}
+			}
+			save_event_target_as = gdi_quest_system_east
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = gdi_quest_system_west
+			}
+			hidden_effect = {
+				root = {
+					set_visited = prev
+				}
+			}
+			save_event_target_as = gdi_quest_system_west
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = gdi_quest_system_south
+			}
+			hidden_effect = {
+				root = {
+					set_visited = prev
+				}
+			}
+			save_event_target_as = gdi_quest_system_south
+		}
+
+		create_point_of_interest = {
+			id = gdi_poi.1
+			name = "gdi_poi_1"
+			desc = "gdi_poi"
+			event_chain = gdi_discovery_chain
+			location = event_target:gdi_quest_system_east
+		}
+
+		create_point_of_interest = {
+			id = gdi_poi.2
+			name = "gdi_poi_2"
+			desc = "gdi_poi"
+			event_chain = gdi_discovery_chain
+			location = event_target:gdi_quest_system_south
+		}
+
+		create_point_of_interest = {
+			id = gdi_poi.3
+			name = "gdi_poi_3"
+			desc = "gdi_poi"
+			event_chain = gdi_discovery_chain
+			location = event_target:gdi_quest_system_west
+		}
+	}
+}
+
+#event that fires to create the quest chain, only fires for the race leader...
+country_event = {
+	id = gdievent.0006
+	title = gdievent.0006.name
+	desc = gdievent.0006.desc
+	show_sound = event_red_alert
+	picture = GFX_evt_mysterious_signal
+	is_triggered_only = yes
+
+	auto_select = yes
 
 	option = {
 		name = gdi_founder_create_poi
 		begin_event_chain = {
-			event_chain = tutorial_25_chain
+			event_chain = gdi_discovery_chain
+		}
+	}
+	after = {
+		add_event_chain_counter = {
+			event_chain = gdi_discovery_chain
+			counter = void_matter_samples
+			amount = 1
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = gdi_quest_system_west
+			}
+			save_event_target_as = gdi_quest_system_west
+			hidden_effect = {
+				root = {
+					set_visited = prev
+				}
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = gdi_quest_system_south
+			}
+			save_event_target_as = gdi_quest_system_south
+			hidden_effect = {
+				root = {
+					set_visited = prev
+				}
+			}
+		}
+
+		create_point_of_interest = {
+			id = gdi_poi.2
+			name = "gdi_poi_2"
+			desc = "gdi_poi"
+			event_chain = gdi_discovery_chain
+			location = event_target:gdi_quest_system_south
+		}
+
+		create_point_of_interest = {
+			id = gdi_poi.3
+			name = "gdi_poi_3"
+			desc = "gdi_poi"
+			event_chain = gdi_discovery_chain
+			location = event_target:gdi_quest_system_west
+		}
+	}
+}
+
+#flavor event when entering a new poi system for the first time
+fleet_event = {
+	id = gdievent.0035
+	title = gdievent.0035.name
+	desc = gdievent.0035.desc
+	picture = GFX_evt_ruined_system
+	is_triggered_only = yes
+
+	option = {
+		name = "COLLECT_SAMPLES"
+		this.owner = {
+			add_resource = {
+				sr_dark_matter = 50
+			}
+		}
+	}
+}
+
+#event to spawn project and remove POI
+fleet_event = {
+	id = gdievent.0031
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_event_chain = gdi_discovery_chain
+			FROM = {
+				OR = {
+					is_point_of_interest = {
+						id = gdi_poi.1
+						event_chain = gdi_discovery_chain
+						owner = root.owner
+					}
+					is_point_of_interest = {
+						id = gdi_poi.2
+						event_chain = gdi_discovery_chain
+						owner = root.owner
+					}
+					is_point_of_interest = {
+						id = gdi_poi.3
+						event_chain = gdi_discovery_chain
+						owner = root.owner
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {FROM = {has_star_flag = gdi_quest_system_east}}
+			#enable the special project
+			FROM = {
+				random_system_planet = {
+					limit = {has_planet_flag = gdi_east_project_target}
+					save_event_target_as = gdi_east_project_target
+				}
+			}
+			owner = {
+				enable_special_project = {
+					name = GDI_PROJECT_EAST
+					owner = this
+					location = event_target:gdi_east_project_target
+				}
+				remove_point_of_interest = gdi_poi.1
+			}
+			fleet_event = {
+				id = gdievent.0042
+			}
+		}
+		if = {
+			limit = {FROM = {has_star_flag = gdi_quest_system_south}}
+			#enable the special project
+			FROM = {
+				random_system_planet = {
+					limit = {has_planet_flag = gdi_south_project_target}
+					save_event_target_as = gdi_south_project_target
+				}
+			}
+			owner = {
+				enable_special_project = {
+					name = GDI_PROJECT_SOUTH
+					owner = this
+					location = event_target:gdi_south_project_target
+				}
+				remove_point_of_interest = gdi_poi.2
+			}
+			fleet_event = {
+				id = gdievent.0043
+			}
+		}
+		if = {
+			limit = {FROM = {has_star_flag = gdi_quest_system_west}}
+			#enable the special project
+			FROM = {
+				random_system_planet = {
+					limit = {has_planet_flag = gdi_west_project_target}
+					save_event_target_as = gdi_west_project_target
+				}
+			}
+			owner = {
+				enable_special_project = {
+					name = GDI_PROJECT_WEST
+					owner = this
+					location = event_target:gdi_west_project_target
+				}
+				remove_point_of_interest = gdi_poi.3
+			}
+			fleet_event = {
+				id = gdievent.0044
+			}
+		}
+	}
+}
+
+#flavor event for EAST discovery
+fleet_event = {
+	id = gdievent.0042
+	title = gdievent.0042.name
+	desc = gdievent.0042.desc
+	show_sound = event_scanner
+	picture = GFX_evt_shrouded_planet
+	is_triggered_only = yes
+
+	location = fromfrom
+
+	auto_select = yes
+
+	option = {
+		name = "GET_TO_WORK"
+	}
+}
+
+#flavor event for SOUTH discovery
+fleet_event = {
+	id = gdievent.0043
+	title = gdievent.0043.name
+	desc = gdievent.0043.desc
+	picture = GFX_evt_supernova
+	show_sound = event_scanner
+	is_triggered_only = yes
+
+	location = fromfrom
+
+	auto_select = yes
+
+	option = {
+		name = "GET_TO_WORK"
+	}
+}
+
+#flavor event for WEST discovery
+fleet_event = {
+	id = gdievent.0044
+	title = gdievent.0044.name
+	desc = gdievent.0044.desc
+	picture = GFX_evt_ruined_system
+	show_sound = event_scanner
+	is_triggered_only = yes
+
+	location = fromfrom
+
+	auto_select = yes
+
+	option = {
+		name = "GET_TO_WORK"
+	}
+}
+
+#counter event for EAST
+fleet_event = {
+	id = gdievent.0032
+	title = gdievent.0032.name
+	desc = gdievent.0032.desc
+	show_sound = event_scanner
+	picture = GFX_evt_shrouded_planet
+	is_triggered_only = yes
+
+	location = fromfrom
+
+	auto_select = yes
+
+	option = {
+		name = "EXCELLENT"
+		owner = {
+			add_event_chain_counter = {
+				event_chain = gdi_discovery_chain
+				counter = void_matter_samples
+				amount = 1
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_event_chain_counter = {
+							event_chain = gdi_discovery_chain
+							counter = void_matter_samples
+						}
+						NOT = {has_global_flag = homeworld_discovered}
+					}
+					owner = {
+						country_event = { id = gdievent.0021 }
+					}
+				}
+				else_if = {
+					limit = { 
+						has_completed_event_chain_counter = {
+							event_chain = gdi_discovery_chain
+							counter = void_matter_samples
+						}
+					}
+
+					owner = {
+						country_event = {
+							id = gdievent.0022
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#counter event for SOUTH
+fleet_event = {
+	id = gdievent.0033
+	title = gdievent.0033.name
+	desc = gdievent.0033.desc
+	show_sound = event_scanner
+	picture = GFX_evt_supernova
+	is_triggered_only = yes
+
+	location = fromfrom
+
+	auto_select = yes
+
+	option = {
+		name = "EXCELLENT"
+		owner = {
+			add_event_chain_counter = {
+				event_chain = gdi_discovery_chain
+				counter = void_matter_samples
+				amount = 1
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_event_chain_counter = {
+							event_chain = gdi_discovery_chain
+							counter = void_matter_samples
+						}
+						NOT = {has_global_flag = homeworld_discovered}
+					}
+					owner = {
+						country_event = { id = gdievent.0021 }
+					}
+				}
+				else_if = {
+					limit = { 
+						has_completed_event_chain_counter = {
+							event_chain = gdi_discovery_chain
+							counter = void_matter_samples
+						}
+					}
+
+					owner = {
+						country_event = {
+							id = gdievent.0022
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#counter event for WEST
+fleet_event = {
+	id = gdievent.0034
+	title = gdievent.0034.name
+	desc = gdievent.0034.desc
+	picture = GFX_evt_ruined_system
+	show_sound = event_scanner
+	is_triggered_only = yes
+
+	location = fromfrom
+
+	auto_select = yes
+
+	option = {
+		name = "EXCELLENT"
+		owner = {
+			add_event_chain_counter = {
+				event_chain = gdi_discovery_chain
+				counter = void_matter_samples
+				amount = 1
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_event_chain_counter = {
+							event_chain = gdi_discovery_chain
+							counter = void_matter_samples
+						}
+						NOT = {has_global_flag = homeworld_discovered}
+					}
+					owner = {
+						country_event = { id = gdievent.0021 }
+					}
+				}
+				else_if = {
+					limit = { 
+						has_completed_event_chain_counter = {
+							event_chain = gdi_discovery_chain
+							counter = void_matter_samples
+						}
+					}
+
+					owner = {
+						country_event = {
+							id = gdievent.0022
+						}
+					}
+				}
+			}
 		}
 	}
 }

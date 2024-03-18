@@ -78,21 +78,6 @@ gdi_system_1 = {
 			use_3d_location = no
 		}
 	}
-
-	usage = misc_system_init
-	usage_odds = {
-		base = 2000000
-		modifier = {
-			factor = 0
-			is_bottleneck_system = no
-		}
-		modifier = {
-			factor = 0
-			is_fe_cluster = yes
-		}
-	}
-	max_instances = 1
-
 }
 
 #GDI South
@@ -168,28 +153,12 @@ gdi_system_2 = {
 			use_3d_location = no
 		}
 	}
-
-	usage = misc_system_init
-	usage_odds = {
-		base = 2000000
-		modifier = {
-			factor = 0
-			is_bottleneck_system = no
-		}
-		modifier = {
-			factor = 0
-			is_fe_cluster = yes
-		}
-	}
-	max_instances = 1
-
 }
 
 #GDI East
 #the one that naturally spawns first (has an anomaly -> archeology -> galaxy wide event chain)
 gdi_system_3 = {
 	class = sc_t
-	name = "H-W VI"
 
 	flags = {gdi_quest_system_east}
 	planet = {
@@ -200,9 +169,7 @@ gdi_system_3 = {
 		init_effect = {
 			save_event_target_as = gdi_east_habitat_planet
 			prevent_anomaly = yes
-			add_anomaly = {
-				category = gdi_1_cat
-			}
+			set_planet_flag = gdi_east_anomaly_target
 		}
 	}
 
@@ -316,14 +283,14 @@ gdi_system_3 = {
 
 	usage = misc_system_init
 	usage_odds = {
-		base = 2000000
+		base = 20000
 		modifier = {
 			factor = 0
-			is_bottleneck_system = no
-		}
-		modifier = {
-			factor = 0
-			is_fe_cluster = yes
+			OR = {
+				is_fe_cluster = yes
+				is_marauder_cluster = yes
+				is_bottleneck_system = no
+			}
 		}
 	}
 	max_instances = 1
@@ -480,18 +447,4 @@ gdi_homeworld = {
 			location = this.star
 		}
 	}
-
-	usage = misc_system_init
-	usage_odds = {
-		base = 2000000
-		modifier = {
-			factor = 0
-			is_bottleneck_system = no
-		}
-		modifier = {
-			factor = 0
-			is_fe_cluster = yes
-		}
-	}
-	max_instances = 1
 }

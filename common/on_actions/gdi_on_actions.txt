@@ -1,0 +1,6 @@
+on_entering_system_fleet = {
+	events = {
+		gdievent.0031
+		gdievent.1003
+	}
+}

@@ -1,0 +1,11 @@
+
+
+gdi_discovery_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	picture = GFX_evt_archaeological_dig
+	counter = {
+		void_matter_samples = {
+			max = 3
+		}
+	}
+}

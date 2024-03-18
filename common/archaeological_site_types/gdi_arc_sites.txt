@@ -4,7 +4,48 @@ site_gdi_arc = {
 	#picture = GFX_ph
 	weight = 0
 
-	stages = 3
+	stages = 6
+
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_F1
+		event = gdievent.0012
+	}
+
+	#stage one... excavate and reach the site
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_F2
+		event = gdievent.0013
+	}
+
+	#stage two.. get door open, discover GDI
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_F3
+		event = gdievent.0014
+	}
+
+	#stage three... discover temporal anomaly,
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_F4
+		event = gdievent.0015
+	}
+
+	#stage four... discover planets lost in the void
+	stage = {
+		difficulty = 6
+		icon = GFX_archaeology_runes_F5
+		event = gdievent.0016
+	}
+
+	#stage five... pull them out, finishes the site
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_F6
+		event = gdievent.0017
+	}
 
 	allow = {
 		exists = leader

@@ -3,6 +3,8 @@ gdi_1_cat = {
 	#picture = "GFX_[PH]"
 	level = 8
 
+	max_once = yes
+
 	spawn_chance = {
 		base = 0
 	}
