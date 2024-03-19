@@ -109,24 +109,3 @@ special_project = {
 		}
 	}
 }
-
-#project to spawn the home system...
-special_project = {
-	key = "GDI_LOCATE_HOME_SYSTEM"
-	cost = 10000
-	tech_department = physics_technology
-	#picture = 
-	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
-	location = yes
-	timelimit = -1
-
-	event_scope = planet_event
-
-	on_success = {
-		root.owner = {
-			country_event = {
-				id = gdievent.0021
-			}
-		}
-	}
-}

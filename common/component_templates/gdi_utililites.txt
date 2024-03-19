@@ -1,0 +1,516 @@
+@cost0 = 0
+@cost1 = 3
+@cost2 = 6
+@cost3 = 9
+@cost4 = 12
+@cost5 = 15
+
+@cruiser_power_1 = 280
+@cruiser_power_2 = 360
+@cruiser_power_3 = 480
+@cruiser_power_4 = 620
+@cruiser_power_5 = 800
+@cruiser_power_6 = 1030
+
+@cruiser_power_t_1 = -40
+@cruiser_power_t_2 = -60
+@cruiser_power_t_3 = -80
+@cruiser_power_t_4 = -100
+@cruiser_power_t_5 = -120
+
+@cruiser_cost_1 = 40
+@cruiser_cost_2 = 52
+@cruiser_cost_3 = 68
+@cruiser_cost_4 = 88
+@cruiser_cost_5 = 112
+@cruiser_cost_6 = 148
+
+@cruiser_cost1 = 12
+@cruiser_cost2 = 24
+@cruiser_cost3 = 36
+@cruiser_cost4 = 48
+@cruiser_cost5 = 60
+
+@power0 = -5
+@power1 = -10
+@power2 = -15
+@power3 = -25
+
+#REACTORS
+utility_component_template = {
+	key = "GDI_CRUISER_FISSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_1"
+	icon_frame = 1
+	power = @cruiser_power_1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost_1
+		}
+		upkeep = {
+			energy = 0.40
+			alloys = 0.04
+		}
+	}
+
+	prerequisites = { "tech_fission_power" }
+	component_set = "power_core"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_CRUISER_FUSION_REACTOR"
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "GDI_CRUISER_FUSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_2"
+	icon_frame = 1
+	power = @cruiser_power_2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost_2
+		}
+		upkeep = {
+			energy = 0.52
+			alloys = 0.052
+		}
+	}
+
+	prerequisites = { "tech_fusion_power" }
+	component_set = "power_core"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_CRUISER_COLD_FUSION_REACTOR"
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "GDI_CRUISER_COLD_FUSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_3"
+	icon_frame = 1
+	power = @cruiser_power_3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost_3
+		}
+		upkeep = {
+			energy = 0.68
+			alloys = 0.068
+		}
+	}
+
+	prerequisites = { "tech_cold_fusion_power" }
+	component_set = "power_core"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_CRUISER_ANTIMATTER_REACTOR"
+
+	ai_weight = {
+		weight = 3
+	}
+}
+
+utility_component_template = {
+	key = "GDI_CRUISER_ANTIMATTER_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_4"
+	icon_frame = 1
+	power = @cruiser_power_4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost_4
+		}
+		upkeep = {
+			energy = 0.88
+			alloys = 0.088
+		}
+	}
+
+	prerequisites = { "tech_antimatter_power" }
+	component_set = "power_core"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_CRUISER_ZERO_POINT_REACTOR"
+
+	ai_weight = {
+		weight = 4
+	}
+}
+
+utility_component_template = {
+	key = "GDI_CRUISER_ZERO_POINT_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_5"
+	icon_frame = 1
+	power = @cruiser_power_5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost_5
+		}
+		upkeep = {
+			energy = 1.14
+			alloys = 0.114
+		}
+	}
+
+	prerequisites = { "tech_zero_point_power" }
+	component_set = "power_core"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_CRUISER_DARK_MATTER_REACTOR"
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+utility_component_template = {
+	key = "GDI_CRUISER_DARK_MATTER_REACTOR"
+	size = small
+	icon = "GFX_ship_part_dark_matter_power_core"
+	icon_frame = 1
+	power = @cruiser_power_6
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost_6
+			sr_dark_matter = 4
+		}
+		upkeep = {
+			energy = 1.48
+			alloys = 0.148
+		}
+	}
+
+	prerequisites = { "tech_mine_dark_matter" }
+	component_set = "power_core"
+	size_restriction = { gdi_crisis_cruiser }
+
+	ai_weight = {
+		weight = 6
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = sr_dark_matter }
+		}
+		modifier = {
+			factor = 0.0
+			is_ai = yes
+		}
+	}
+}
+
+#DEFAULT
+utility_component_template = {
+	key = "GDI_COMBAT_COMPUTER_LINE_DEFAULT"
+	size = small
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+	power = @power0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
+	ship_behavior = "line"
+
+	class_restriction = { shipclass_military }
+	size_restriction = { gdi_crisis_cruiser }
+	component_set = "combat_computers"
+	upgrades_to = "GDI_COMBAT_COMPUTER_LINE_SAPIENT"
+	ai_tags = { gunship }
+	ai_tag_weight = 0
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+#PICKET
+utility_component_template = {
+	key = "GDI_COMBAT_COMPUTER_PICKET_SAPIENT"
+	size = small
+	icon = "GFX_ship_part_computer_picket_sapient"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	prerequisites = {
+		tech_combat_computers_1
+	}
+	size_restriction = { gdi_crisis_cruiser }
+	component_set = "combat_computers"
+	ship_behavior = "picket"
+	ai_tags = { screen }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.10
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.15
+		ship_tracking_add = 30
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_flag = ghost_signal_5_flag
+				has_global_flag = ghost_signal_4_flag
+				has_global_flag = ghost_signal_3_flag
+				has_global_flag = ghost_signal_2_flag
+				has_global_flag = ghost_signal_1_flag
+				has_policy_flag = ai_outlawed
+			}
+		}
+	}
+}
+
+#LINE
+utility_component_template = {
+	key = "GDI_COMBAT_COMPUTER_LINE_SAPIENT"
+	size = small
+	icon = "GFX_ship_part_computer_line_sapient"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military shipclass_military_special }
+	size_restriction = { gdi_crisis_cruiser }
+	prerequisites = {
+		tech_combat_computers_1
+	}
+	component_set = "combat_computers"
+	ship_behavior = "line"
+
+	ai_tags = { gunship }
+	ai_tag_weight = 0
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.20
+		ship_accuracy_add = 20
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_flag = ghost_signal_5_flag
+				has_global_flag = ghost_signal_4_flag
+				has_global_flag = ghost_signal_3_flag
+				has_global_flag = ghost_signal_2_flag
+				has_global_flag = ghost_signal_1_flag
+				has_policy_flag = ai_outlawed
+			}
+		}
+	}
+}
+
+#ARTILLERY
+utility_component_template = {
+	key = "GDI_COMBAT_COMPUTER_ARTILLERY_SAPIENT"
+	size = small
+	icon = "GFX_ship_part_computer_artillery_sapient"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military shipclass_starbase shipclass_military_special }
+	size_restriction = {gdi_crisis_cruiser}
+	prerequisites = {
+		tech_combat_computers_1
+	}
+	component_set = "combat_computers"
+	ship_behavior = "artillery"
+
+	ai_tags = { artillery artillery_stealth energy_torpedoes energy_torpedoes_stealth }
+	ai_tag_weight = 0
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.20
+		ship_weapon_range_mult = 0.20
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_flag = ghost_signal_5_flag
+				has_global_flag = ghost_signal_4_flag
+				has_global_flag = ghost_signal_3_flag
+				has_global_flag = ghost_signal_2_flag
+				has_global_flag = ghost_signal_1_flag
+				has_policy_flag = ai_outlawed
+			}
+		}
+	}
+}
+
+#THRUSTERS
+utility_component_template = {
+	key = "GDI_SHIP_THRUSTER_1"
+	size = small
+	icon = "GFX_ship_part_thruster_1"
+	icon_frame = 1
+	power = @cruiser_power_t_1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost1
+		}
+	}
+
+	modifier = {
+	}
+
+	prerequisites = { "tech_thrusters_1" }
+	component_set = "thruster_components"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_SHIP_THRUSTER_2"
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "GDI_SHIP_THRUSTER_2"
+	size = small
+	icon = "GFX_ship_part_thruster_2"
+	icon_frame = 1
+	power = @cruiser_power_t_2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost2
+		}
+	}
+
+	modifier = {
+		ship_base_speed_mult = 0.25
+		ship_evasion_add = 3
+	}
+
+	prerequisites = { "tech_thrusters_2" }
+	component_set = "thruster_components"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_SHIP_THRUSTER_3"
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "GDI_SHIP_THRUSTER_3"
+	size = small
+	icon = "GFX_ship_part_thruster_3"
+	icon_frame = 1
+	power = @cruiser_power_t_3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost3
+		}
+	}
+	modifier = {
+		ship_base_speed_mult = 0.50
+		ship_evasion_add = 6
+	}
+
+	prerequisites = { "tech_thrusters_3" }
+	component_set = "thruster_components"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_SHIP_THRUSTER_4"
+
+	ai_weight = {
+		weight = 3
+	}
+}
+
+utility_component_template = {
+	key = "GDI_SHIP_THRUSTER_4"
+	size = small
+	icon = "GFX_ship_part_thruster_4"
+	icon_frame = 1
+	power = @cruiser_power_t_4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost4
+		}
+	}
+	modifier = {
+		ship_base_speed_mult = 0.75
+		ship_evasion_add = 9
+	}
+
+	prerequisites = { "tech_thrusters_4" }
+	component_set = "thruster_components"
+	size_restriction = { gdi_crisis_cruiser }
+	upgrades_to = "GDI_SHIP_THRUSTER_5"
+
+	ai_weight = {
+		weight = 4
+	}
+}
+
+utility_component_template = {
+	key = "GDI_SHIP_THRUSTER_5"
+	size = small
+	icon = "GFX_ship_part_thruster_5"
+	icon_frame = 1
+	power = @cruiser_power_t_5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost4
+			sr_dark_matter = 4
+		}
+	}
+	modifier = {
+		ship_base_speed_mult = 1.25
+		ship_evasion_add = 12
+	}
+
+	prerequisites = { "tech_mine_dark_matter" }
+	component_set = "thruster_components"
+	size_restriction = { gdi_crisis_cruiser }
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = sr_dark_matter }
+		}
+		modifier = {
+			factor = 0.0
+			is_ai = yes
+		}
+	}
+}

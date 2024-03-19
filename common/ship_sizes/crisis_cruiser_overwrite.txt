@@ -4,11 +4,13 @@ gdi_crisis_cruiser = {
 	acceleration = 0.2
 	rotation_speed = 0.2
 	collision_radius = @destroyer_collision_radius
+
 	modifier = {
 		ship_evasion_add = 10
 		ship_armor_add = 34
 		ship_piracy_suppression_add = 6
 	}
+
 	max_hitpoints = @cruiser_hp
 	size_multiplier = 4
 	fleet_slot_size = 4
@@ -43,6 +45,7 @@ gdi_crisis_cruiser = {
 		category = ships
 		cost = {
 			minerals = 900
+			alloys = 300
 		}
 		upkeep = {
 			energy = @cruiser_upkeep_energy

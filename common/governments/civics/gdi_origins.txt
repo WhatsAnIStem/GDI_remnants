@@ -1,4 +1,0 @@
-origin_GDI_remnants = {
-	is_origin = yes
-	icon = "gfx/interface/icons/origins/origins_shattered_ring.dds"
-}
