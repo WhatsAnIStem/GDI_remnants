@@ -2,7 +2,7 @@
 @base_moon_distance = 10
 
 #GDI West
-gdi_system_1 = {
+roy_gdi_system_1 = {
 	name = "Homeworld III"
 	class = sc_black_hole
 
@@ -81,7 +81,7 @@ gdi_system_1 = {
 }
 
 #GDI South
-gdi_system_2 = {
+roy_gdi_system_2 = {
 	class = sc_black_hole
 	name = "Homeworld IV"
 
@@ -157,7 +157,7 @@ gdi_system_2 = {
 
 #GDI East
 #the one that naturally spawns first (has an anomaly -> archeology -> galaxy wide event chain)
-gdi_system_3 = {
+roy_gdi_system_3 = {
 	class = sc_t
 
 	flags = {gdi_quest_system_east}
@@ -298,7 +298,7 @@ gdi_system_3 = {
 }
 
 #GDI Homeworld
-gdi_homeworld = {
+roy_gdi_homeworld = {
 	class = sc_k
 	name = "Homeworld"
 

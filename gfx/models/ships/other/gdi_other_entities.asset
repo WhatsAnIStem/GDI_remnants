@@ -1,6 +1,6 @@
 #GDI
 entity = {
-	name = "gdi_crisis_cruiser_entity"
+	name = "roy_gdi_crisis_cruiser_entity"
 	locator = { name = "part1"			position = {  0 0 0	} }
 	game_data = {
 		size = 12
@@ -8,7 +8,7 @@ entity = {
 }
 
 entity = {
-	name = "gdi_crisis_cruiser_hull_entity"
+	name = "roy_gdi_crisis_cruiser_hull_entity"
 	#name = "pirate_01_cruiser_hull_entity"
 	pdxmesh = "pirate_01_cruiser_mesh"
 	scale = 1.25

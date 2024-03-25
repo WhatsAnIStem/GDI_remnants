@@ -20,7 +20,7 @@ special_project = {
 	on_success = {
 		root.owner = {
 			country_event = {
-				id = gdievent.0029
+				id = roy.event.gdi.0029
 			}
 		}
 	}
@@ -33,7 +33,7 @@ special_project = {
 	location = yes
 	cost = 0
 	days_to_research = 360
-	event_chain = gdi_discovery_chain
+	event_chain = roy_gdi_discovery_chain
 
 	requirements = {
 		shipclass_science_ship = 1
@@ -48,7 +48,7 @@ special_project = {
 	on_success = {
 		this.fleet = {
 			fleet_event = {
-				id = gdievent.0032
+				id = roy.event.gdi.0032
 			}
 		}
 	}
@@ -61,7 +61,7 @@ special_project = {
 	location = yes
 	cost = 0
 	days_to_research = 360
-	event_chain = gdi_discovery_chain
+	event_chain = roy_gdi_discovery_chain
 
 	requirements = {
 		shipclass_science_ship = 1
@@ -76,7 +76,7 @@ special_project = {
 	on_success = {
 		this.fleet = {
 			fleet_event = {
-				id = gdievent.0033
+				id = roy.event.gdi.0033
 			}
 		}
 	}
@@ -89,7 +89,7 @@ special_project = {
 	location = yes
 	cost = 0
 	days_to_research = 360
-	event_chain = gdi_discovery_chain
+	event_chain = roy_gdi_discovery_chain
 
 	requirements = {
 		shipclass_science_ship = 1
@@ -104,7 +104,7 @@ special_project = {
 	on_success = {
 		this.fleet = {
 			fleet_event = {
-				id = gdievent.0034
+				id = roy.event.gdi.0034
 			}
 		}
 	}

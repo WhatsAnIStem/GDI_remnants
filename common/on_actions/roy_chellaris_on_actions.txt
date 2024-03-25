@@ -1,6 +1,6 @@
 on_entering_system_fleet = {
 	events = {
-		gdievent.0031
-		gdievent.1003
+		roy.event.gdi.0031
+		roy.event.gdi.1003
 	}
 }

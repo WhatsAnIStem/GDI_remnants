@@ -1,4 +1,4 @@
-gdi_crisis_cruiser = {
+roy_gdi_crisis_cruiser = {
 	graphical_culture = yes
 	max_speed = @speed_fast
 	acceleration = 0.2
@@ -9,6 +9,7 @@ gdi_crisis_cruiser = {
 		ship_evasion_add = 10
 		ship_armor_add = 34
 		ship_piracy_suppression_add = 6
+		shipclass_military_build_cost_mult = 0.3
 	}
 
 	max_hitpoints = @cruiser_hp
@@ -50,6 +51,7 @@ gdi_crisis_cruiser = {
 		upkeep = {
 			energy = @cruiser_upkeep_energy
 			minerals = @cruiser_upkeep_minerals
+			alloys = @corvette_upkeep_alloys
 		}
 	}
 

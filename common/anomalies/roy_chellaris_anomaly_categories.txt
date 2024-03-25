@@ -11,7 +11,7 @@ gdi_1_cat = {
 
 	on_success = {
 		1 = {
-			anomaly_event = gdievent.0003
+			anomaly_event = roy.event.gdi.0003
 		}
 	}
 }

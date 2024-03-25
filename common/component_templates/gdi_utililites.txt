@@ -56,7 +56,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_fission_power" }
 	component_set = "power_core"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_CRUISER_FUSION_REACTOR"
 
 	ai_weight = {
@@ -83,7 +83,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_fusion_power" }
 	component_set = "power_core"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_CRUISER_COLD_FUSION_REACTOR"
 
 	ai_weight = {
@@ -110,7 +110,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_cold_fusion_power" }
 	component_set = "power_core"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_CRUISER_ANTIMATTER_REACTOR"
 
 	ai_weight = {
@@ -137,7 +137,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_antimatter_power" }
 	component_set = "power_core"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_CRUISER_ZERO_POINT_REACTOR"
 
 	ai_weight = {
@@ -164,7 +164,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_zero_point_power" }
 	component_set = "power_core"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_CRUISER_DARK_MATTER_REACTOR"
 
 	ai_weight = {
@@ -190,9 +190,10 @@ utility_component_template = {
 		}
 	}
 
-	prerequisites = { "tech_mine_dark_matter" }
+
+	prerequisites = { tech_dark_matter_power_core }
 	component_set = "power_core"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 
 	ai_weight = {
 		weight = 6
@@ -223,7 +224,7 @@ utility_component_template = {
 	ship_behavior = "line"
 
 	class_restriction = { shipclass_military }
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	component_set = "combat_computers"
 	upgrades_to = "GDI_COMBAT_COMPUTER_LINE_SAPIENT"
 	ai_tags = { gunship }
@@ -248,10 +249,8 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military }
-	prerequisites = {
-		tech_combat_computers_1
-	}
-	size_restriction = { gdi_crisis_cruiser }
+	prerequisites = {tech_combat_computers_3}
+	size_restriction = { roy_gdi_crisis_cruiser }
 	component_set = "combat_computers"
 	ship_behavior = "picket"
 	ai_tags = { screen }
@@ -295,10 +294,8 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military shipclass_military_special }
-	size_restriction = { gdi_crisis_cruiser }
-	prerequisites = {
-		tech_combat_computers_1
-	}
+	size_restriction = { roy_gdi_crisis_cruiser }
+	prerequisites = {tech_combat_computers_3}
 	component_set = "combat_computers"
 	ship_behavior = "line"
 
@@ -340,10 +337,8 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military shipclass_starbase shipclass_military_special }
-	size_restriction = {gdi_crisis_cruiser}
-	prerequisites = {
-		tech_combat_computers_1
-	}
+	size_restriction = {roy_gdi_crisis_cruiser}
+	prerequisites = {tech_combat_computers_3}
 	component_set = "combat_computers"
 	ship_behavior = "artillery"
 
@@ -390,7 +385,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_thrusters_1" }
 	component_set = "thruster_components"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_SHIP_THRUSTER_2"
 
 	ai_weight = {
@@ -418,7 +413,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_thrusters_2" }
 	component_set = "thruster_components"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_SHIP_THRUSTER_3"
 
 	ai_weight = {
@@ -445,7 +440,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_thrusters_3" }
 	component_set = "thruster_components"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_SHIP_THRUSTER_4"
 
 	ai_weight = {
@@ -472,7 +467,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_thrusters_4" }
 	component_set = "thruster_components"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 	upgrades_to = "GDI_SHIP_THRUSTER_5"
 
 	ai_weight = {
@@ -498,9 +493,9 @@ utility_component_template = {
 		ship_evasion_add = 12
 	}
 
-	prerequisites = { "tech_mine_dark_matter" }
+	prerequisites = { tech_dark_matter_propulsion }
 	component_set = "thruster_components"
-	size_restriction = { gdi_crisis_cruiser }
+	size_restriction = { roy_gdi_crisis_cruiser }
 
 	ai_weight = {
 		weight = 5
