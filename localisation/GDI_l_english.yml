@@ -1,7 +1,7 @@
 ﻿l_english:
  r_gdi_matrix:0 "G.D.I. War Matrix"
  r_gdi_matrix_desc:0 "A fragmented war matrix from a once menacing empire. We can invest a large amount of energy to defragment the relic and gain access to their lost war ship designs, for a time."
- r_gdi_matrix_active:0 "Allows the design and construction of §PGDI Crisis Cruisers§! for 5 years. These ships can use certain §MDark Matter§! components if we have §BDark Matter Drawing§! researched."
+ r_gdi_matrix_active:0 "Allows the design and construction of §PGDI Crisis Cruisers§! for 5 years. These ships have a high fixed cost, but are limited to only the most advanced ship AIs."
  gdi_arc_desc:0 "Several deep scans across this system eventually lead us to an abandoned complex buried deep under this planets surface."
  roy_site_gdi_arc:0 "Buried Orbital Complex"
  roy.event.gdi.0029.name:0 "The End of the GDI"

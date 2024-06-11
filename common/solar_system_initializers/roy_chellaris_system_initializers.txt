@@ -281,9 +281,11 @@ roy_gdi_system_3 = {
 		
 	}
 
+	spawn_chance = 20
+
 	usage = misc_system_init
 	usage_odds = {
-		base = 20000
+		base = 20
 		modifier = {
 			factor = 0
 			OR = {
