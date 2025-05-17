@@ -1,6 +1,12 @@
 on_entering_system_fleet = {
 	events = {
-		roy.event.gdi.0031
-		roy.event.gdi.1003
+		roy_event_gdi.0031
+		roy_event_gdi.1003
+	}
+}
+
+on_astral_rift_exploration_start = {
+	events = {
+		roy_astral_rifts.3
 	}
 }

@@ -1,0 +1,385 @@
+namespace = roy_astral_rifts
+
+country_event = {
+	id = roy_astral_rifts.3
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_astral_rift_flag = roy_safecorp_rift
+		}
+	}
+	immediate = {
+		set_global_flag = roy_safecorp_being_explored
+		if = {
+			limit = {NOT = {has_global_flag = roy_safecorp_discovered}}
+			set_global_flag = roy_safecorp_discovered
+			this = {
+				save_event_target_as = roy_safecorp_rift
+			}
+		}
+	}
+}
+
+# Intro event
+astral_rift_event = {
+	id = roy_astral_rifts.100
+	title = roy_astral_rifts.100.name
+	desc = roy_astral_rifts.100.desc
+
+	#picture = 
+	#show_sound = 
+	difficulty = @astral_rift_initial_difficulty
+	astral_rift = yes
+	is_triggered_only = yes
+
+	option = {
+		name = roy_astral_rifts.100.a
+		set_next_astral_rift_event = {id = roy_astral_rifts.101}
+	}
+
+	after = {
+		explorer = {
+			astral_thread_small_reward = yes
+		}
+	}
+}
+
+# Contact event
+astral_rift_event = {
+	id = roy_astral_rifts.101
+	title = roy_astral_rifts.101.name
+	desc = roy_astral_rifts.101.desc
+
+	difficulty = @astral_rift_easy_difficulty
+	astral_rift = yes
+	is_triggered_only = yes
+
+	# first person
+	option = {
+		name = roy_astral_rifts.101.a
+
+		trigger = {NOT = {has_global_flag = roy_safecorp_angered}}
+
+		hidden_effect = {
+			if = {
+				limit = {NOT = {has_global_flag = roy_safecorp_discovered}}
+				set_global_flag = roy_safecorp_discovered
+			}
+		}
+
+		set_next_astral_rift_event = {
+			id = roy_astral_rifts.103
+		}
+	}
+
+	# angered, megacorp
+	option = {
+		name = roy_astral_rifts.101.b
+
+		trigger = {has_global_flag = roy_safecorp_angered}
+		allow = {
+			# Check for megacorp
+			explorer = {
+				has_government = gov_megacorporation
+			}
+		}
+
+
+	}
+
+	# angered
+	option = {
+		name = roy_astral_rifts.101.c
+
+		trigger = {has_global_flag = roy_safecorp_angered}
+
+		set_next_astral_rift_event = {
+			id = roy_astral_rifts.102
+			on_roll_failed = roy_astral_rifts.199
+			fail_probability = 0.33
+		}
+	}
+}
+
+# Failed to calm down, kill scientist
+astral_rift_event = {
+	id = roy_astral_rifts.199
+	title = roy_astral_rifts.199.name
+	desc = roy_astral_rifts.199.desc
+	astral_rift = yes
+	is_triggered_only = yes
+
+	option = {
+		name = roy_astral_rifts.199.a
+		fleet = {
+			kill_leader = {
+				show_notification = yes
+			}
+		}
+		finish_astral_rift = yes
+	}
+
+	after = {
+		hidden_effect = {
+			remove_global_flag = roy_safecorp_being_explored
+		}
+	}
+}
+
+astral_rift_event = {
+	id = roy_astral_rifts.102
+	title = roy_astral_rifts.102.name
+	desc = roy_astral_rifts.102.desc
+	astral_rift = yes
+	is_triggered_only = yes
+
+	difficulty = @astral_rift_hard_difficulty
+	option = {
+		name = roy_astral_rifts.102.a
+		set_next_astral_rift_event = {
+			id = roy_astral_rifts.103
+		}
+	}
+}
+
+astral_rift_event = {
+	id = roy_astral_rifts.103
+	title = roy_astral_rifts.103.name
+	desc = roy_astral_rifts.103.desc
+	astral_rift = yes
+	is_triggered_only = yes
+
+	difficulty = @astral_rift_medium_difficulty
+
+	# extraction fleet
+	option = {
+		name = roy_astral_rifts.103.a
+
+		set_next_astral_rift_event = {
+			id = roy_astral_rifts.104
+		}
+	}
+
+	# sabotage
+	option = {
+		name = roy_astral_rifts.103.d
+		
+		allow = {
+			NOT = {has_global_flag = roy_safecorp_angered}
+		}
+		
+		hidden_effect = {
+			set_global_flag = roy_safecorp_angered
+		}
+
+		set_next_astral_rift_event = {
+			id = roy_astral_rifts.107
+		}
+	}
+
+	# Make the safecorp sepecies if this is the first time safecorp has been encountered
+	after = {
+		hidden_effect = {
+			explorer = {
+				if = {
+					limit = {
+						NOR = {
+							has_global_flag = roy_safecorp_expansion_spawned
+							has_global_flag = roy_safecorp_extraction_spawned
+							has_global_flag = roy_safecorp_market_spawned
+							has_global_flag = roy_safecorp_angered
+						}
+					}
+					create_species = {
+						homeworld = event_target:roy_safecorp_rift
+						name = "roy_safecorp_species_name"
+						class = HUM
+						namelist = HUM1
+						portrait = humanoid_hp_07
+						traits = {
+							ideal_planet_class = pc_habitat
+							trait = trait_conservational
+							trait = trait_thrifty
+							trait = trait_deviants
+							trait = trait_decadent
+						}
+
+						effect = {
+							this = {
+								save_global_event_target_as = roy_safecorp_enclave_species
+							}
+						}
+					}
+					set_global_flag = made_safecorp_species
+				}
+			}
+		}
+	}
+}
+
+
+astral_rift_event = {
+	id = roy_astral_rifts.104
+	title = roy_astral_rifts.104.name
+	desc = roy_astral_rifts.104.desc
+	astral_rift = yes
+	is_triggered_only = yes
+
+	difficulty = @astral_rift_hard_difficulty
+
+	# Expansion Fleet
+	option = {
+		name = roy_astral_rifts.104.a
+
+		trigger = {
+			NOT = {
+				has_global_flag = roy_safecorp_expansion_spawned
+			}
+		}
+
+		hidden_effect = {
+			set_global_flag = roy_safecorp_expansion_spawned
+			remove_global_flag = roy_safecorp_being_explored
+			solar_system = {
+				save_event_target_as = roy_safecorp_expansion_system
+			}
+		}
+
+
+		finish_astral_rift = yes
+	}
+
+	# extraction fleet
+	option = {
+		name = roy_astral_rifts.104.b
+
+		trigger = {
+			NOT = {
+				has_global_flag = roy_safecorp_extraction_spawned
+			}
+		}
+
+		hidden_effect = {
+			set_global_flag = roy_safecorp_extraction_spawned
+			remove_global_flag = roy_safecorp_being_explored
+			solar_system = {
+				save_event_target_as = roy_safecorp_extraction_system
+				# grab a random planet 
+				random_system_planet = {
+					save_global_event_target_as = roy_safecorp_extraction_planet
+					set_planet_flag = test_safecorp_flag
+					create_country = {
+						name = "roy_safecorp_extraction_country_name"
+						type = enclave
+						authority = "auth_oligarchic"
+						civics = {
+							# TODO: make civic
+							civic = civic_roy_safecorp
+						}
+
+
+
+						origin = "origin_default"
+						species = event_target:roy_safecorp_enclave_species
+						#flag = {}
+						ethos = {
+							ethic = ethic_fanatic_xenophile
+							ethic = ethic_materialist
+						}
+						ignore_initial_colony_error = yes
+						effect = { 
+
+							save_global_event_target_as = roy_safecorp_extraction_country
+							set_country_flag = roy_safecorp_extraction_country
+							set_graphical_culture = mammalian_01
+				
+							# Create the starbase, reuse enclave models and such
+							create_fleet = {
+								name = "NAME_roy_safecorp_extraction"
+								settings = {spawn_debris = no}
+								effect = {
+									set_owner = prev
+									create_ship = {
+										name = "NAME_roy_safecorp_extraction"
+										design = "NAME_Trader_Enclave_Station"
+										graphical_culture = prev
+									}
+									set_location = {
+										target = event_target:roy_safecorp_extraction_planet
+										distance = 40
+										angle = 70
+									}
+									save_global_event_target_as = roy_safecorp_extraction_starbase
+								}
+							}
+							set_custom_capital_location = event_target:roy_safecorp_extraction_planet
+							create_leader = {
+								name = random
+								class = official
+								species = event_target:roy_safecorp_enclave_species
+								skill = 5
+								
+							}
+							set_leader = last_created_leader
+							every_country = {
+								establish_communications_no_message = prev
+								country_event = {id = roy_enclave.305}
+							}
+							add_trust = {
+								amount = 10
+								who = root.explorer
+							}
+						}
+					}
+				}
+			}
+			# Fire the country event to spawn the enclave
+		}
+
+
+		finish_astral_rift = yes
+	}
+
+	# Market Fleet
+	option = {
+		name = roy_astral_rifts.104.c
+
+		trigger = {
+			NOT = {
+				has_global_flag = roy_safecorp_market_spawned
+			}
+		}
+
+		hidden_effect = {
+			set_global_flag = roy_safecorp_market_spawned
+			remove_global_flag = roy_safecorp_being_explored
+			solar_system = {save_event_target_as = roy_safecorp_market_system}
+		}
+
+
+		finish_astral_rift = yes
+	}
+}
+
+# sabotage
+astral_rift_event = {
+	id = roy_astral_rifts.107
+	title = roy_astral_rifts.107.name
+	desc = roy_astral_rifts.107.desc
+	astral_rift = yes
+	is_triggered_only = yes
+
+	difficulty = @astral_rift_easy_difficulty
+	option = {
+		name = roy_astral_rifts.107.a
+		hidden_effect = {
+			set_global_flag = roy_safecorp_angered
+			solar_system = {
+				save_event_target_as = roy_safecorp_sabotage_system
+			}
+		}
+	}
+}

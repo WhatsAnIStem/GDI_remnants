@@ -1,0 +1,46 @@
+roy_create_safecorp_extraction_country = {
+	create_country = {
+		name = random
+		type = enclave
+		authority = "auth_oligarchic"
+		civics = {
+			# TODO: make civic
+			#civic = civic_roy_safecorp
+		}
+		origin = "origin_default"
+		species = event_target:roy_safecorp_enclave_species
+		#flag = {}
+		ethos = {
+			ethic = ethic_fanatic_xenophile
+			ethic = ethic_materialist
+		}
+		ignore_initial_colony_error = yes
+		effect = {
+			save_global_event_target_as = roy_safecorp_extraction_country
+			set_country_flag = roy_safecorp_extraction_country
+			set_graphical_culture = mammalian_01
+
+			# Create the starbase, reuse enclave models and such
+			create_fleet = {
+				name = "NAME_roy_safecorp_extraction"
+				settings = {spawn_debris = no}
+				effect = {
+					set_owner = prev
+					create_ship = {
+						name = "NAME_roy_safecorp_extraction"
+						design = "NAME_roy_safecorp_extraction_station"
+						graphical_culture = prev
+					}
+					set_location = {
+						target = event_target:roy_safecorp_extraction_planet
+					}
+					save_global_event_target_as = roy_safecorp_extraction_starbase
+				}
+			}
+		}
+	}
+}
+ 
+roy_create_safecorp_expansion_country = {}
+
+roy_create_safecorp_market_country = {}

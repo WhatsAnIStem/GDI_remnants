@@ -1,0 +1,7 @@
+roy_grex_decryption_modifier = {
+	intel_decryption_add = 1
+}
+
+roy_grex_encryption_modifier = {
+	intel_encryption_add = 1
+}

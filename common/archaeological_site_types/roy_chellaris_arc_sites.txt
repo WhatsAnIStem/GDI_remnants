@@ -9,42 +9,42 @@ roy_site_gdi_arc = {
 	stage = {
 		difficulty = 3
 		icon = GFX_archaeology_runes_F1
-		event = roy.event.gdi.0012
+		event = roy_event_gdi.0012
 	}
 
 	#stage one... excavate and reach the site
 	stage = {
 		difficulty = 4
 		icon = GFX_archaeology_runes_F2
-		event = roy.event.gdi.0013
+		event = roy_event_gdi.0013
 	}
 
 	#stage two.. get door open, discover GDI
 	stage = {
 		difficulty = 5
 		icon = GFX_archaeology_runes_F3
-		event = roy.event.gdi.0014
+		event = roy_event_gdi.0014
 	}
 
 	#stage three... discover temporal anomaly,
 	stage = {
 		difficulty = 5
 		icon = GFX_archaeology_runes_F4
-		event = roy.event.gdi.0015
+		event = roy_event_gdi.0015
 	}
 
 	#stage four... discover planets lost in the void
 	stage = {
 		difficulty = 8
 		icon = GFX_archaeology_runes_F5
-		event = roy.event.gdi.0016
+		event = roy_event_gdi.0016
 	}
 
 	#stage five... pull them out, finishes the site
 	stage = {
 		difficulty = 2
 		icon = GFX_archaeology_runes_F6
-		event = roy.event.gdi.0017
+		event = roy_event_gdi.0017
 	}
 
 	allow = {
@@ -65,4 +65,65 @@ roy_site_gdi_arc = {
 			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = no_events } #maybe later?
 		}
 	}
+}
+
+roy_site_grex = {
+
+	desc = grex_site_desc
+
+	stages = 5
+
+	max_instances = 1
+	weight = 0
+
+	# Stage 0, unexcavated
+	stage = {
+		difficulty = 2
+		icon = GFX_archaeology_runes_F1
+		event = roy_event_grex.0002
+	}
+
+	# Stage 1, shield reached
+	stage = {
+		difficulty = 5
+		icon = GFX_archaeology_runes_F2
+		event = roy_event_grex.0003
+	}
+
+	# Stage 2, in the site
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_F3
+		event = roy_event_grex.0004
+	}
+
+	# Stage 3, Everyone is dead
+	stage = {
+		difficulty = 3
+		icon = GFX_archaeology_runes_F4
+		event = roy_event_grex.0005
+	}
+
+	# Stage 4, repurpose the site
+	stage = {
+		difficulty = 4
+		icon = GFX_archaeology_runes_F5
+		event = roy_event_grex.0006
+	}
+
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	allow = {
+		exists = leader
+		leader = { leader_class = scientist }
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = no_events } #maybe later?
+		}
+	}
+
 }

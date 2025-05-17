@@ -1,0 +1,78 @@
+namespace = roy_enclave
+
+# Astra Division: Extraction -- Establish Scopes
+country_event = {
+	id = roy_enclave.300
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {is_country_type = enclave}
+		has_trader_event = no
+		OR = {
+			AND = {
+				NOT = {has_country_flag = attacked_safecorp}
+				OR = {
+					from = {has_country_flag = roy_safecorp_expansion_country}
+					from = {has_country_flag = roy_safecorp_extraction_country}
+					from = {has_country_flag = roy_safecorp_market_country}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			root = {country_event = {id = roy_enclave.305}}
+		}
+	}
+}
+
+# Astra Division: Extraction -- GREETINGS
+country_event = {
+
+	id = roy_enclave.305
+	title = roy_enclave.305.name
+	desc_clear = yes
+	option_clear = yes
+	is_triggered_only = yes
+	diplomatic = yes
+
+	custom_gui = "safecorp_trader_window"
+	custom_gui_option = "safecorp_trader_option"
+
+	picture_event_data = {
+		portrait = event_target:roy_safecorp_extraction_country
+		room = enclave_trader_room
+	}
+
+	location = event_target:roy_safecorp_extraction_planet
+
+	option = {
+		name = {
+			trigger = { has_valid_civic = civic_fanatic_purifiers }
+			text = SCUM
+		}
+		name = {
+			trigger = { has_valid_civic = civic_hive_devouring_swarm }
+			text = TASTY
+		}
+		name = {
+			trigger = { has_valid_civic = civic_machine_terminator }
+			text = EXTERMINATE
+		}
+		name = {
+			trigger = {
+				NOR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+			text = roy_safecorp_text.305.a
+
+		}
+		default_hide_option = yes
+	}
+
+}

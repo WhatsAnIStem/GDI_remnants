@@ -1,0 +1,157 @@
+namespace = roy_event_grex
+
+# Spawn archeology site
+ship_event = {
+	id = roy_event_grex.0001
+	title = roy.event.grex.0001.name
+	desc = roy.event.grex.0001.desc
+	location = from
+	is_triggered_only = yes
+
+	auto_select = yes
+	option = {
+		name = GREX_SITE_SPAWN_ARCHEOLOGY
+		fromfrom = {
+			create_archaeological_site = roy_site_grex
+		}
+		this = {
+			owner = {
+				add_monthly_resource_mult = {
+					resource = physics_research
+					value = @tier1researchreward
+					min = @tier1researchmin
+					max = @tier1researchmax
+				}
+			}
+		}
+	}
+
+	option = {
+		name = GREX_SITE_REFUSE_ARCHEOLOGY
+		this = {
+			owner = {
+				add_resource = {influence = 200}
+				add_monthly_resource_mult = {
+					resource = physics_research
+					value = @tier1researchreward
+					min = @tier1researchmin
+					max = @tier1researchmax
+				}
+			}
+		}
+	}
+}
+
+# Stage 0, unexcavated
+fleet_event = {
+	id = roy_event_grex.0002
+	title = roy.event.grex.0002.name
+	desc = roy.event.grex.0002.desc
+
+	picture = GFX_evt_archaeology_camp
+	show_sound = event_drilling
+	location = from
+	archaeology = yes
+	is_triggered_only = yes
+
+	auto_select = yes
+	option = {
+		name = GREX_SITE_STAGE_0
+	}
+}
+
+# Stage 1, shield reached
+fleet_event = {
+	id = roy_event_grex.0003
+	title = roy.event.grex.0003.name
+	desc = roy.event.grex.0003.desc
+
+	location = from
+	archaeology = yes
+	is_triggered_only = yes
+
+	auto_select = yes
+	option = {
+		name = GREX_SITE_STAGE_1
+	}
+}
+
+# Stage 2, in the site
+fleet_event = {
+	id = roy_event_grex.0004
+	title = roy.event.grex.0004.name
+	desc = roy.event.grex.0004.desc
+
+	location = from
+	archaeology = yes
+	is_triggered_only = yes
+
+	auto_select = yes
+	
+	option = {
+		small_artifact_reward = yes
+		name = GREX_SITE_STAGE_2
+	}
+}
+
+# Stage 3, Everyone is dead
+fleet_event = {
+	id = roy_event_grex.0005
+	title = roy.event.grex.0005.name
+	desc = roy.event.grex.0005.desc
+
+	location = from
+	archaeology = yes
+	is_triggered_only = yes
+
+	auto_select = yes
+	option = {
+		small_artifact_reward = yes
+		name = GREX_SITE_STAGE_3
+		from = {planet = {set_name = "Mexus Grex"}}
+	}
+}
+
+# Stage 4, repurpose the site
+fleet_event = {
+	id = roy_event_grex.0006
+	title = roy.event.grex.0006.name
+	desc = roy.event.grex.0006.desc
+
+	location = from
+	archaeology = yes
+	is_triggered_only = yes
+
+	
+	option = {
+		name = GREX_SITE_FINISHER_DECRYPTION
+		# Add 1 decryption as a permanant modifier to the empire
+		this = {
+			owner = {
+				add_modifier = {
+					modifier = roy_grex_decryption_modifier
+				}
+			}
+		}
+	}
+
+	option = {
+		name = GREX_SITE_FINISHER_ENCRYPTION
+		# Add 1 encryption as a permanant modifier to the empire
+		this = {
+			owner = {
+				add_modifier = {
+					modifier = roy_grex_encryption_modifier
+				}
+			}
+		}
+	}
+
+	option = {
+		name = GREX_SITE_FINISHER_INFLUENCE
+		
+		# Add 0.6 influence as a deposit to the planet
+		from = {planet = {set_deposit = roy_d_influence_point6}}
+		custom_tooltip = GREX_SITE_FINISHER_INFLUENCE_TOOLTIP
+	}
+}

@@ -1,7 +1,4 @@
 ﻿l_english:
- r_gdi_matrix:0 "G.D.I. War Matrix"
- r_gdi_matrix_desc:0 "A fragmented war matrix from a once menacing empire. We can invest a large amount of energy to defragment the relic and gain access to their lost war ship designs, for a time."
- r_gdi_matrix_active:0 "Allows the design and construction of §PGDI Crisis Cruisers§! for 5 years. These ships have a high fixed cost, but are limited to only the most advanced ship AIs."
  gdi_arc_desc:0 "Several deep scans across this system eventually lead us to an abandoned complex buried deep under this planets surface."
  roy_site_gdi_arc:0 "Buried Orbital Complex"
  roy.event.gdi.0029.name:0 "The End of the GDI"
@@ -29,12 +26,13 @@
  roy.event.gdi.0035.desc:0 "Upon entry to the [Root.System.GetName] system, [This.GetLeaderName] picked up strange readings across the entire system. The entire system weights more than it should, even the empty space has mass far exceeding what should be possible in our universe. Further investigation is required."
  COLLECT_SAMPLES:0 "Collect some samples for study. Lets also take a closer look at this system."
 
-#EAST
+ 
  roy.event.gdi.0032.name:0 "Dark Matter Sponge"
  roy.event.gdi.0032.desc:0 "After extensive investigation on [gdi_east_project_target.GetName], we found that the brown dwarf at the center of the system absorbed most of the energy while falling into our galaxy. This gives the star strange properties, like being able to sustain fusion at it's core despite the insufficient mass to do normally. This also offers some explanation as to how its closest orbiting body can remain stable far past the stars Roche limit."
  gdi_poi_1:0 "Investigate [gdi_quest_system_east.GetName]"
  GDI_PROJECT_EAST:0 "Readings on [gdi_east_project_target.GetName]"
  GDI_PROJECT_EAST_DESC:0 "This planet is well within the Roche limit of the host star. The star is also not massive enough to sustain the small amount of fusion in its core."
+
 #SOUTH
  roy.event.gdi.0033.name:0 "A Violent Implosion"
  roy.event.gdi.0033.desc:0 "The black hole in this system is not like the others in our galaxy. The spin, charge, and mass of this black hole are constantly changing. The mass around the accretion disk flucuates with the black hole, suggesting they are both foreign to our galaxy. The mass's orbit around the black hole also suggest that it was expelled from the center of the black hole, likely upon materializing in our galaxy. The spontanious materialization also seems to have destabilized the astral space near the edge of the system."
@@ -108,3 +106,18 @@
  GDI_COMBAT_COMPUTER_LINE_SAPIENT:0 "Sapient Combat Computer (Line)"
  GDI_COMBAT_COMPUTER_PICKET_SAPIENT:0 "Sapient Combat Computer (Picket)"
  GDI_COMBAT_COMPUTER_ARTILLERY_SAPIENT:0 "Sapient Combat Computer (Artillery)"
+
+# RELIC
+ r_gdi_matrix:0 "G.D.I. War Matrix"
+ r_gdi_matrix_desc:0 "A fragmented war matrix from a once menacing empire. We can invest a large amount of dark-matter to defragment the relic and gain access to the G.D.I crisis' secrets."
+ r_gdi_matrix_active:0 "Allows us to choose between three extremely powerful bonuses to assist us in our endeavours as the Galactic Menace. Only one choice can ever be selected, and we can come back later to decide if one does not appeal to us at the moment."
+ gdi_r_option_1:0 "We will conjure an impenetrable bastion."
+ gdi_r_option_1_tooltip:0 "The Aetherophasic Engine will conjure a large storm in your area.\n§YThis storm removes visibility into the systems it affects§! and §Gremoves intel about you from other empires§!.\nIt also §Yprevents any ship from jump-driving§! into the systems within the storm.\n§RThis storm does not dissipate§!."
+ gdi_r_option_2:0 "We will blot out the stars. All that will remain is our light."
+ gdi_r_option_2_tooltip:0 "You will §Gimmediately gain a free Star Eater§!. Additional Star Eaters may now be constructed starting from Crisis Level 4.\n§G+10000§! £sr_dark_matter£ Dark Matter storage capacity."
+ gdi_r_option_3:0 "We must convince the community that our cause is righteous."
+ gdi_r_option_3_tooltip:0 "Upon reaching Crisis Level 5, §Gyou will not automatically be declared a crisis, nor will you be removed from the Galactic Community§!.\nThe Community will still be able to declare you a crisis, and others will still be able to manually declare war on you."
+ gdi_r_option_4:0 "We must consider our options carefully, we will decide later."
+ gdi_r_option_4_tooltip:0 "craft"
+ gdi_buff_fail:0 "We have already selected a crisis buff"
+ gdi_buff_success:0 "We have not already selected a crisis buff"

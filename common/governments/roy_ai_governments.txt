@@ -1,0 +1,14 @@
+gov_roy_safecorp_enclave = {
+	ruler_title = "ROY_RT_DEPARTMENT_HEAD"
+
+	should_force_rename = yes
+
+	possible = {
+		is_ai = yes
+		has_valid_civic = civic_roy_safecorp
+	}
+	weight = {
+		# Ignore the parser error here for now...
+		base = @gov_ai_weight
+	}
+}

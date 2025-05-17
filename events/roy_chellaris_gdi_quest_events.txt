@@ -1,4 +1,4 @@
-namespace = roy.event.gdi
+namespace = roy_event_gdi
 
 #ADD EVENT IN THE FUTURE FOR REPAIRING THE GDI SCIENCE NEXUS
 
@@ -6,7 +6,7 @@ namespace = roy.event.gdi
 #set up site, start digging
 #digsite_0
 fleet_event = {
-	id = roy.event.gdi.0012
+	id = roy_event_gdi.0012
 	title = roy.event.gdi.0012.name
 	desc = roy.event.gdi.0012.desc
 	picture = GFX_evt_archaeology_camp
@@ -32,7 +32,7 @@ fleet_event = {
 #encounter door
 #digsite_1
 fleet_event = {
-	id = roy.event.gdi.0013
+	id = roy_event_gdi.0013
 	title = roy.event.gdi.0013.name
 	desc = roy.event.gdi.0013.desc
 	show_sound = event_energy_field
@@ -59,7 +59,7 @@ fleet_event = {
 #get the door open, initial results
 #digsite_2
 fleet_event = {
-	id = roy.event.gdi.0014
+	id = roy_event_gdi.0014
 	title = roy.event.gdi.0014.name
 	desc = roy.event.gdi.0014.desc
 	show_sound = event_power_down
@@ -101,7 +101,7 @@ fleet_event = {
 #stage three... discover temporal anomaly,
 #digsite_3
 fleet_event = {
-	id = roy.event.gdi.0015
+	id = roy_event_gdi.0015
 	title = roy.event.gdi.0015.name
 	desc = roy.event.gdi.0015.desc
 	show_sound = event_mystic_reveal
@@ -128,7 +128,7 @@ fleet_event = {
 #stage four... discover planets lost in the void
 #digsite_4
 fleet_event = {
-	id = roy.event.gdi.0016
+	id = roy_event_gdi.0016
 	title = roy.event.gdi.0016.name
 	desc = roy.event.gdi.0016.desc
 	show_sound = event_sensor_ping
@@ -155,7 +155,7 @@ fleet_event = {
 #stage five... pull them out, finishes the site
 #digsite_5
 fleet_event = {
-	id = roy.event.gdi.0017
+	id = roy_event_gdi.0017
 	title = roy.event.gdi.0017.name
 	desc = roy.event.gdi.0017.desc
 	show_sound = event_activating_unknown_technology
@@ -171,7 +171,7 @@ fleet_event = {
 		hidden_effect = {
 			owner = {
 				country_event = {
-					id = roy.event.gdi.0004
+					id = roy_event_gdi.0004
 				}
 			}
 		}
@@ -180,7 +180,7 @@ fleet_event = {
 
 #event that highlights the homeworld system.
 country_event = {
-	id = roy.event.gdi.0022
+	id = roy_event_gdi.0022
 	title = roy.event.gdi.0022.name
 	desc = roy.event.gdi.0022.desc
 	picture = GFX_evt_communication_event
@@ -212,7 +212,7 @@ country_event = {
 #event that spawns the homeworld system, enables the special project...
 #hidden
 country_event = {
-	id = roy.event.gdi.0021
+	id = roy_event_gdi.0021
 
 	auto_select = yes
 	hide_window = yes
@@ -261,13 +261,13 @@ country_event = {
 				set_visited = prev
 			}
 		}
-		country_event = { id = roy.event.gdi.0022 days = 2 }
+		country_event = { id = roy_event_gdi.0022 days = 2 }
 	}
 }
 
 #final project, find the relic
 country_event = {
-	id = roy.event.gdi.0029
+	id = roy_event_gdi.0029
 	title = roy.event.gdi.0029.name
 	desc = roy.event.gdi.0029.desc
 	picture = GFX_evt_binary_stars
@@ -287,7 +287,7 @@ country_event = {
 
 #event that spawns the anomaly...
 fleet_event = {
-	id = roy.event.gdi.1003
+	id = roy_event_gdi.1003
 	title = roy.event.gdi.1003.name
 	desc = roy.event.gdi.1003.desc
 	show_sound = event_mystic_reveal_light
@@ -324,7 +324,7 @@ fleet_event = {
 
 #event that fires after the anomaly finishes, spawns the archeology
 ship_event = {
-	id = roy.event.gdi.0003
+	id = roy_event_gdi.0003
 	title = roy.event.gdi.0003.name
 	desc = roy.event.gdi.0003.desc
 	picture = GFX_evt_ship_in_orbit
@@ -362,7 +362,7 @@ ship_event = {
 #event that fires to create the two new systems, only runs for the empire that finishes the archeology site
 #HIDDEN
 country_event = {
-	id = roy.event.gdi.0004
+	id = roy_event_gdi.0004
 	hide_window = yes
   
 	fire_only_once = yes
@@ -439,16 +439,16 @@ country_event = {
 					has_country_flag = gdi_race_leader
 				} 
 			}
-			country_event = { id = roy.event.gdi.0005 days = 2 }
+			country_event = { id = roy_event_gdi.0005 days = 2 }
 		}
-		country_event = {id = roy.event.gdi.0006 days = 2}
+		country_event = {id = roy_event_gdi.0006 days = 2}
 	}
 }
 
 
 #event that fires to create the quest chain, this one fires for every other empire
 country_event = {
-	id = roy.event.gdi.0005
+	id = roy_event_gdi.0005
 	title = roy.event.gdi.0005.name
 	desc = roy.event.gdi.0005.desc
 	picture = GFX_evt_mysterious_signal
@@ -529,7 +529,7 @@ country_event = {
 
 #event that fires to create the quest chain, only fires for the race leader...
 country_event = {
-	id = roy.event.gdi.0006
+	id = roy_event_gdi.0006
 	title = roy.event.gdi.0006.name
 	desc = roy.event.gdi.0006.desc
 	show_sound = event_red_alert
@@ -595,7 +595,7 @@ country_event = {
 
 #flavor event when entering a new poi system for the first time
 fleet_event = {
-	id = roy.event.gdi.0035
+	id = roy_event_gdi.0035
 	title = roy.event.gdi.0035.name
 	desc = roy.event.gdi.0035.desc
 	picture = GFX_evt_ruined_system
@@ -613,7 +613,7 @@ fleet_event = {
 
 #event to spawn project and remove POI
 fleet_event = {
-	id = roy.event.gdi.0031
+	id = roy_event_gdi.0031
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -661,7 +661,7 @@ fleet_event = {
 				remove_point_of_interest = gdi_poi.1
 			}
 			fleet_event = {
-				id = roy.event.gdi.0042
+				id = roy_event_gdi.0042
 			}
 		}
 		if = {
@@ -682,7 +682,7 @@ fleet_event = {
 				remove_point_of_interest = gdi_poi.2
 			}
 			fleet_event = {
-				id = roy.event.gdi.0043
+				id = roy_event_gdi.0043
 			}
 		}
 		if = {
@@ -703,7 +703,7 @@ fleet_event = {
 				remove_point_of_interest = gdi_poi.3
 			}
 			fleet_event = {
-				id = roy.event.gdi.0044
+				id = roy_event_gdi.0044
 			}
 		}
 	}
@@ -711,7 +711,7 @@ fleet_event = {
 
 #flavor event for EAST discovery
 fleet_event = {
-	id = roy.event.gdi.0042
+	id = roy_event_gdi.0042
 	title = roy.event.gdi.0042.name
 	desc = roy.event.gdi.0042.desc
 	show_sound = event_scanner
@@ -729,7 +729,7 @@ fleet_event = {
 
 #flavor event for SOUTH discovery
 fleet_event = {
-	id = roy.event.gdi.0043
+	id = roy_event_gdi.0043
 	title = roy.event.gdi.0043.name
 	desc = roy.event.gdi.0043.desc
 	picture = GFX_evt_supernova
@@ -747,7 +747,7 @@ fleet_event = {
 
 #flavor event for WEST discovery
 fleet_event = {
-	id = roy.event.gdi.0044
+	id = roy_event_gdi.0044
 	title = roy.event.gdi.0044.name
 	desc = roy.event.gdi.0044.desc
 	picture = GFX_evt_ruined_system
@@ -765,7 +765,7 @@ fleet_event = {
 
 #counter event for EAST
 fleet_event = {
-	id = roy.event.gdi.0032
+	id = roy_event_gdi.0032
 	title = roy.event.gdi.0032.name
 	desc = roy.event.gdi.0032.desc
 	show_sound = event_scanner
@@ -794,7 +794,7 @@ fleet_event = {
 						NOT = {has_global_flag = homeworld_discovered}
 					}
 					owner = {
-						country_event = { id = roy.event.gdi.0021 }
+						country_event = { id = roy_event_gdi.0021 }
 					}
 				}
 				else_if = {
@@ -807,7 +807,7 @@ fleet_event = {
 
 					owner = {
 						country_event = {
-							id = roy.event.gdi.0022
+							id = roy_event_gdi.0022
 						}
 					}
 				}
@@ -818,7 +818,7 @@ fleet_event = {
 
 #counter event for SOUTH
 fleet_event = {
-	id = roy.event.gdi.0033
+	id = roy_event_gdi.0033
 	title = roy.event.gdi.0033.name
 	desc = roy.event.gdi.0033.desc
 	show_sound = event_scanner
@@ -847,7 +847,7 @@ fleet_event = {
 						NOT = {has_global_flag = homeworld_discovered}
 					}
 					owner = {
-						country_event = { id = roy.event.gdi.0021 }
+						country_event = { id = roy_event_gdi.0021 }
 					}
 				}
 				else_if = {
@@ -860,7 +860,7 @@ fleet_event = {
 
 					owner = {
 						country_event = {
-							id = roy.event.gdi.0022
+							id = roy_event_gdi.0022
 						}
 					}
 				}
@@ -871,7 +871,7 @@ fleet_event = {
 
 #counter event for WEST
 fleet_event = {
-	id = roy.event.gdi.0034
+	id = roy_event_gdi.0034
 	title = roy.event.gdi.0034.name
 	desc = roy.event.gdi.0034.desc
 	picture = GFX_evt_ruined_system
@@ -900,7 +900,7 @@ fleet_event = {
 						NOT = {has_global_flag = homeworld_discovered}
 					}
 					owner = {
-						country_event = { id = roy.event.gdi.0021 }
+						country_event = { id = roy_event_gdi.0021 }
 					}
 				}
 				else_if = {
@@ -913,11 +913,61 @@ fleet_event = {
 
 					owner = {
 						country_event = {
-							id = roy.event.gdi.0022
+							id = roy_event_gdi.0022
 						}
 					}
 				}
 			}
+		}
+	}
+}
+
+# relic choice event
+country_event = {
+	id = roy_event_gdi.0999
+	title = roy.event.gdi.0999.name
+	desc = roy.event.gdi.0999.desc
+
+	is_triggered_only = yes
+	auto_select = yes
+	# Cosmic Storm
+	option = {
+		name = "gdi_r_option_1"
+		hidden_effect = {
+			set_country_flag = roy_gdi_storm_buff
+		}
+		custom_tooltip = "gdi_r_option_1_tooltip"
+	}
+	
+	# Star eater
+	option = {
+		name = "gdi_r_option_2"
+		hidden_effect = {
+			set_country_flag = roy_gdi_star_eater_buff
+		}
+		custom_tooltip = "gdi_r_option_2_tooltip"
+	}
+
+	# community
+	option = {
+		name = "gdi_r_option_3"
+		hidden_effect = {
+			set_country_flag = roy_gdi_community_buff
+		}
+		custom_tooltip = "gdi_r_option_3_tooltip"
+		
+	}
+
+	# Choose later
+	option = {
+		name = "gdi_r_option_4"
+		add_resource = {
+			sr_dark_matter = 750
+			menace = 2000
+		}
+		custom_tooltip = "gdi_r_option_4_tooltip"
+		hidden_effect = {
+			remove_country_flag = roy_gdi_buff_selected	
 		}
 	}
 }

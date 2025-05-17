@@ -1,0 +1,35 @@
+﻿l_english:
+ roy_astral_rifts.100.name:0 "A Lively Citadel"
+ roy_astral_rifts.100.desc:0 ""
+ roy_astral_rifts.100.a:0 "Engage first contact protocols, approach the citadel cautiously." 
+
+ roy_astral_rifts.101.name:0 "Corporate Connections"
+ roy_astral_rifts.101.desc:0 ""
+
+ roy_astral_rifts.101.a:0 ""
+ roy_astral_rifts.101.b:0 ""
+ roy_astral_rifts.101.c:0 ""
+
+
+
+ roy_astral_rifts.103.a:0 "Cooperate with constructing their astral spheres."
+ roy_astral_rifts.103.d:0 "Sabotage the astral sphere designs we share with them."
+
+ roy_astral_rifts.104.a:0 "Agree to guide the Colonization fleet."
+ roy_astral_rifts.104.b:0 "Agree to guide the Resource Extraction fleet."
+ roy_astral_rifts.104.c:0 "Agree to guide the Market Outreach fleet." 
+
+ roy_safecorp_expansion_country_name:0 "Astra-Division: Colonization Department"
+ roy_safecorp_market_country_name:0 "Astra-Division: Market Outreach Department"
+ roy_safecorp_extraction_country_name:0 "Astra-Division: Extraction Department"
+ NAME_roy_safecorp_extraction:0 "Astra-Division: Station" #starbase
+ NAME_roy_safecorp_extraction_station:0 "Astra-Division: Station"
+
+ gov_roy_safecorp_enclave:0 "Astra-Division Enclave"
+ gov_roy_safecorp_enclave_desc:0 "A small corporate enclave established by a wildly successful galactic Mega-Corporation from another universe."
+
+ civic_roy_safecorp:0 "SafeCorp: Astra-Division"
+ civic_roy_safecorp_desc:0 ""
+
+ ROY_RT_DEPARTMENT_HEAD:0 "Department Head"
+ roy_safecorp_species_name:0 "Fareen"

@@ -11,7 +11,42 @@ gdi_1_cat = {
 
 	on_success = {
 		1 = {
-			anomaly_event = roy.event.gdi.0003
+			anomaly_event = roy_event_gdi.0003
+		}
+	}
+}
+
+grex_site_cat = {
+
+	desc = "grex_site_anomaly_desc"
+	max_once_global = yes
+	should_ai_and_humans_use = yes
+
+	level = 5
+
+	null_spawn_chance = 0
+
+	spawn_chance = {
+		base = 1000000
+
+		modifier = {
+			factor = 0
+			NOR = {
+				is_planet_class = pc_barren
+				is_planet_class = pc_barren_cold
+			}
+		}
+
+		modifier = {
+			factor = 0
+			is_moon = no
+		}
+	}
+
+	on_success = {
+		1 = {
+			max_once = yes
+			anomaly_event = roy_event_grex.0001
 		}
 	}
 }

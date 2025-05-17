@@ -1,0 +1,27 @@
+roy_safecorp = {
+	name = safecorp_astra_divison
+	event_weight = {
+		weight = 99999999
+		modifier = {
+			factor = 0
+			AND = {
+				has_global_flag = roy_safecorp_expansion_spawned
+				has_global_flag = roy_safecorp_extraction_spawned
+				has_global_flag = roy_safecorp_market_spawned
+			}
+		}
+		modifier = {
+			factor = 0
+			has_global_flag = roy_safecorp_being_explored
+		}
+		modifier = {
+			factor = 10
+			has_global_flag = roy_safecorp_discovered
+		}
+	}
+	on_roll_failed = {
+		standard_astral_rift_on_roll_failed = yes
+	}
+	event = roy_astral_rifts.100
+	flags = { roy_safecorp_rift }
+}

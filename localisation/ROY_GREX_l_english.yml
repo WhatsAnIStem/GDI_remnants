@@ -1,0 +1,37 @@
+﻿l_english:
+ grex_site_cat:0 "Strong Sub-Surface Signature"
+ grex_site_anomaly_desc:0 "Surface scans of [Root.Planet.GetName] have revealed an extremely strong and consistent energy signature deep below the surface of the planet. Due to the unknown nature of the energy signature, further investigation will focus on measurements taken without disturbing the surrounding land."
+
+ roy.event.grex.0001.name:0 "Safe? Signatures"
+ roy.event.grex.0001.desc:0 "The tireless work of [Root.GetLeaderName] on identifying the energy signature on [Root.Planet.GetName] has bore its fruit. Deep below the surface of the planet, [Root.GetLeaderName] believes that several highly advanced generators are generating copious amounts of energy, likely for some colossal structure. [Root.GetLeaderName] also believes that an archeological expedition to make contact with this structure, and hopefully its owners, could help further our understanding of power generation and advanced subterranean societies. They have volunteered to assemble the archaeology team and set up an excavation site on the surface of [Root.Planet.GetName]."
+ GREX_SITE_SPAWN_ARCHEOLOGY:0 "Approved, lets start digging."
+ GREX_SITE_REFUSE_ARCHEOLOGY:0 "Unfortunately, our [Owner.GetScientistPlural] have more urgent matters set aside for them."
+
+ roy_site_grex:0 "Sub-Surface Signature"
+ grex_site_desc:0 "Surface scans of this [Root.Planet.GetName] reveal a frightening energy signature deep below the surface, it has been deemed 'safe enough' for an excavation team to approach."
+
+ roy.event.grex.0002.name:0 "The Barrier"
+ roy.event.grex.0002.desc:0 "A new development has stopped the excavation in its tracks. On approach to the source of the energy signature, the excavation team has encountered a nearly impenetrable field of light. Further excavation has revealed that this light barrier is smooth and spherical, and a rough estimation has put its extent at several kilometers in circumference. [Root.GetLeaderName] suggests studying the barrier in the hopes of finding a way through, while the excavation team believes that some physical entrance through the barrier might exist, waiting to be found."
+ GREX_SITE_STAGE_0:0 "A way through is a way through, lets figure something out."
+
+ roy.event.grex.0003.name:0 "The Shield"
+ roy.event.grex.0003.desc:0 "byebye"
+ GREX_SITE_STAGE_1:0 "Get another drone in there, we need to boost the signal."
+
+ roy.event.grex.0004.name:0 "The Sarcophagus"
+ roy.event.grex.0004.desc:0 "Upon re-establishing a strong visual feed, the entire excavation team fell into a shocked silence. Thousands of perfectly preserved bodies are visibly scattered throughout the view of the drone. The occupants' cause of death could not be determined visually or with any of the drones onboard instruments. After carefully navigating the swarm of bodies and inspecting the site's techological infrastructure, the excavation team's [Owner.GetScientistPlural] believe that they can interface with the site's access points, given enough time to understand it."
+ GREX_SITE_STAGE_2:0 "Excellent, lets get cracking."
+
+ roy.event.grex.0005.name:0 "The Nexus"
+ roy.event.grex.0005.desc:0 "hello"
+ GREX_SITE_STAGE_3:0 "Approved, do not disappoint."
+
+ roy.event.grex.0006.name:0 "The Machine"
+ roy.event.grex.0006.desc:0 "Our team has managed to access the technological infrastructure of the site on Mexus Grex."
+ GREX_SITE_FINISHER_DECRYPTION:0 "Dedicate the site to our own espionage efforts."
+ roy_grex_decryption_modifier:0 "Custodian Token; Decryption"
+ GREX_SITE_FINISHER_ENCRYPTION:0 "Dedicate the site to our own counter-espionage efforts."
+ roy_grex_encryption_modifier:0 "Custodian Token; Encryption"
+ GREX_SITE_FINISHER_INFLUENCE:0 "Retrofit the site for use by our highest ranking political officers."
+ GREX_SITE_FINISHER_INFLUENCE_TOOLTIP:0 "Any potential or ongoing extraction or research efforts on this planet will have to be discontinued."
+ roy_d_influence_point6:0 "£influence£ §Y+0.6§!"

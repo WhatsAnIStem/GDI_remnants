@@ -1,7 +1,7 @@
 
 
 r_gdi_matrix = {
-	activation_duration = 1800
+	
 	portrait = "GFX_relic_gdi_matrix"
 	sound = "relic_activation_ether_drake_trophy"
 
@@ -9,7 +9,8 @@ r_gdi_matrix = {
 		category = relics
 		# Activation cost
 		cost = {
-			energy = 10000
+			sr_dark_matter = 750 # subject to change
+			menace = 2000
 		}
 	}
 
@@ -17,31 +18,22 @@ r_gdi_matrix = {
 		weight = 0
 	}
 
-	triggered_country_modifier = {
-		potential = {
-			always = yes
+	resources = {
+		category = relics
+		produces = {
+			sr_dark_matter = 5
 		}
-	  #add archeotech speed
-	  category_archaeostudies_research_speed_mult = 0.25
 	}
 
 	score = 1000
 
 	active_effect = {
 		custom_tooltip = r_gdi_matrix_active
-		set_timed_country_flag = {
-			flag = gdi_triumph
-			days = 1800
-		}
-		#add_modifier = {
-		#	modifier = "gdi_triumph"
-		#	days = 1800
-		#}
-		custom_tooltip = relic_triumph_cooldown
+		# Trigger the event to choose an option.
 		hidden_effect = {
-			add_modifier = {
-				modifier = "relic_activation_cooldown"
-				days = 3600
+			owner = {
+				country_event = {id = roy_event_gdi.0999}
+				set_country_flag = roy_gdi_buff_selected
 			}
 		}
 	}
@@ -51,6 +43,15 @@ r_gdi_matrix = {
 		inline_script = {
 			script = relics/activation_checks
 			RELIC = r_gdi_matrix
+		}
+		owner = {
+			has_ascension_perk = ap_become_the_crisis
+			custom_tooltip = {
+				text = "gdi_buff_uhoh"
+				fail_text = "gdi_buff_fail"
+				success_text = "gdi_buff_success"
+				NOT = {has_country_flag = roy_gdi_buff_selected}
+			}
 		}
 	}
 }
